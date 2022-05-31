@@ -63,6 +63,23 @@ run_continental_test <- function(island_age,
     verbose = verbose
   )
 
+  for (i in seq_along(sims)) {
+    for (j in 2:length(sims[[i]])) {
+      vicariant_species <-
+        sims[[i]][[j]]$branching_times[1] == sims[[i]][[j]]$branching_times[2]
+      species_endemism <-  sims[[i]][[j]]$stac
+      num_clado_events <- length(sims[[i]][[j]]$branching_times) - 1
+      if (vicariant_species && species_endemism == 4) {
+        sims[[i]][[j]]$stac <- 1
+      } else if (vicariant_species && species_endemism == 2 && num_clado_events >= 1) {
+        sims[[i]][[j]]$stac <- 6
+      } else if (vicariant_species && species_endemism == 2) {
+        sims[[i]][[j]]$stac <- 5
+      }
+    }
+  }
+
+
   mls <- list()
   for (i in seq_len(replicates)) {
     mls[[i]] <- DAISIE::DAISIE_ML_CS(

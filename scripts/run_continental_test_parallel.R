@@ -27,6 +27,8 @@ res <- ContinentalTesting::run_continental_test(
   verbose = TRUE
 )
 
+res <- list(res = res, params = parameter_space[i, ])
+
 
 output_name <- paste0("continental_test_param_set_", i, ".rds")
 
