@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^bash$
+^scripts$
+^LICENSE\.md$
