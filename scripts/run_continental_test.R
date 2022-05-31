@@ -9,7 +9,7 @@ parameter_space <- expand.grid(
 
 res <- list()
 for (i in seq_len(nrow(parameter_space))) {
-  res[[i]] <- run_continental_test(
+  res[[i]] <- ContinentalTesting::run_continental_test(
     island_age = parameter_space$island_age[i],
     num_mainland_species = 100,
     clado_rate = parameter_space$clado_rate[i],

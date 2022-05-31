@@ -13,7 +13,7 @@ parameter_space <- expand.grid(
   prob_init_endemic = c(0.1, 0.5, 0.9)
 )
 
-res <- run_continental_test(
+res <- ContinentalTesting::run_continental_test(
   island_age = parameter_space$island_age[i],
   num_mainland_species = 100,
   clado_rate = parameter_space$clado_rate[i],
