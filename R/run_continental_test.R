@@ -63,7 +63,7 @@ run_continental_test <- function(island_age,
     verbose = verbose
   )
 
-  sim_precise <- sims
+  sims_precise <- sims
 
   for (i in seq_along(sims)) {
     for (j in 2:length(sims[[i]])) {
