@@ -63,6 +63,8 @@ run_continental_test <- function(island_age,
     verbose = verbose
   )
 
+  sim_precise <- sims
+
   for (i in seq_along(sims)) {
     for (j in 2:length(sims[[i]])) {
       vicariant_species <-
@@ -75,15 +77,39 @@ run_continental_test <- function(island_age,
         sims[[i]][[j]]$stac <- 6
       } else if (vicariant_species && species_endemism == 2) {
         sims[[i]][[j]]$stac <- 5
+      } else if (vicariant_species && species_endemic == 3) {
+        sims[[i]][[j]]$stac <- 7
       }
     }
   }
 
 
+  sims_max_age <- sims
+
   mls <- list()
   for (i in seq_len(replicates)) {
-    mls[[i]] <- DAISIE::DAISIE_ML_CS(
-      datalist = sims[[i]],
+
+    mls[[i]]$precise <- DAISIE::DAISIE_ML_CS(
+      datalist = sims_precise[[i]],
+      datatype = "single",
+      initparsopt = c(
+        clado_rate,
+        ext_rate,
+        carrying_cap,
+        immig_rate,
+        ana_rate,
+        prob_init_species
+      ),
+      idparsopt = 1:6,
+      parsfix = NULL,
+      idparsfix = NULL,
+      ddmodel = 11,
+      methode = "lsodes",
+      optimmethod = "simplex"
+    )
+
+    mls[[i]]$max_age <- DAISIE::DAISIE_ML_CS(
+      datalist = sims_max_age[[i]],
       datatype = "single",
       initparsopt = c(
         clado_rate,

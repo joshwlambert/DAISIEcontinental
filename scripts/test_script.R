@@ -1,4 +1,4 @@
-island_age = 1.0
+island_age = 0.1
 num_mainland_species = 100
 clado_rate = 0.1
 ext_rate = 0.1
@@ -21,6 +21,8 @@ sims <- DAISIE::DAISIE_sim_cr(
   verbose = verbose
 )
 
+sims_precise <- sims
+
 for (i in seq_along(sims)) {
   for (j in 2:length(sims[[i]])) {
     vicariant_species <-
@@ -33,14 +35,16 @@ for (i in seq_along(sims)) {
       sims[[i]][[j]]$stac <- 6
     } else if (vicariant_species && species_endemism == 2) {
       sims[[i]][[j]]$stac <- 5
+    } else if (vicariant_species && species_endemic == 3) {
+      sims[[i]][[j]]$stac <- 7
     }
   }
 }
 
-
+sims_max_age <- sims
 
 mls <- DAISIE::DAISIE_ML_CS(
-  datalist = sims[[i]],
+  datalist = sims_precise[[i]],
   datatype = "single",
   initparsopt = c(
     clado_rate,
@@ -58,4 +62,22 @@ mls <- DAISIE::DAISIE_ML_CS(
   optimmethod = "simplex"
 )
 
+mls <- DAISIE::DAISIE_ML_CS(
+  datalist = sims_max_age[[i]],
+  datatype = "single",
+  initparsopt = c(
+    clado_rate,
+    ext_rate,
+    carrying_cap,
+    immig_rate,
+    ana_rate,
+    prob_init_species
+  ),
+  idparsopt = 1:6,
+  parsfix = NULL,
+  idparsfix = NULL,
+  ddmodel = 11,
+  methode = "lsodes",
+  optimmethod = "simplex"
+)
 
