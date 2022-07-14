@@ -35,7 +35,7 @@ for (i in seq_along(sims)) {
       sims[[i]][[j]]$stac <- 6
     } else if (vicariant_species && species_endemism == 2) {
       sims[[i]][[j]]$stac <- 5
-    } else if (vicariant_species && species_endemic == 3) {
+    } else if (vicariant_species && species_endemism == 3) {
       sims[[i]][[j]]$stac <- 7
     }
   }
