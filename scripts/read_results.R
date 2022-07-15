@@ -10,9 +10,13 @@ mls <- lapply(res, "[[", "mls")
 mls <- lapply(mls, "[[", 1)
 mls_precise <- lapply(mls, "[[", 1)
 mls_max_age <- lapply(mls, "[[", 2)
+params <- lapply(results, "[[", "params")
+true_pip <- unlist(lapply(params, "[[", "prob_init_species"))
 precise_pip <- unlist(lapply(mls_precise, function(x) {
   x$prob_init_pres
 }))
+ml_precise_gamma <- unlist(lapply(mls_precise, "[[", "gamma"))
+
 
 max_age_pip <- unlist(lapply(mls_max_age, function(x) {
   x$prob_init_pres
@@ -31,3 +35,6 @@ hist(max_age_pip - precise_pip, breaks = 100)
 hist(precise_pip, breaks = 100)
 hist(max_age_pip, breaks = 100)
 
+plot(true_pip, max_age_pip)
+
+plot(precise_pip, ml_precise_gamma)
