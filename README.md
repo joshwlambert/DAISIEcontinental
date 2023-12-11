@@ -2,6 +2,7 @@
 # ContinentalTesting
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/joshwlambert/ContinentalTesting/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joshwlambert/ContinentalTesting/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of ContinentalTesting is to test the precision and reliability of the continental DAISIE inference model.
