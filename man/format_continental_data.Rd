@@ -2,7 +2,7 @@
 % Please edit documentation in R/format_continental_data.R
 \name{format_continental_data}
 \alias{format_continental_data}
-\title{Format the continental data simulated with [DAISIE::DAISIE_sim_cr()]}
+\title{Format the continental data simulated with DAISIE::DAISIE_sim_cr()}
 \usage{
 format_continental_data(sims)
 }
