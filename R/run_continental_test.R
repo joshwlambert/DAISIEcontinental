@@ -51,7 +51,6 @@ run_continental_test <- function(island_age,
                                  prob_init_species,
                                  prob_init_endemic,
                                  verbose) {
-browser()
   sims <- DAISIE::DAISIE_sim_cr(
     time = island_age,
     M = num_mainland_species,
