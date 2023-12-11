@@ -51,7 +51,7 @@ run_continental_test <- function(island_age,
                                  prob_init_species,
                                  prob_init_endemic,
                                  verbose) {
-
+browser()
   sims <- DAISIE::DAISIE_sim_cr(
     time = island_age,
     M = num_mainland_species,
@@ -65,23 +65,7 @@ run_continental_test <- function(island_age,
 
   sims_precise <- sims
 
-  for (i in seq_along(sims)) {
-    for (j in 2:length(sims[[i]])) {
-      vicariant_species <-
-        sims[[i]][[j]]$branching_times[1] == sims[[i]][[j]]$branching_times[2]
-      species_endemism <-  sims[[i]][[j]]$stac
-      num_clado_events <- length(sims[[i]][[j]]$branching_times) - 1
-      if (vicariant_species && species_endemism == 4) {
-        sims[[i]][[j]]$stac <- 1
-      } else if (vicariant_species && species_endemism == 2 && num_clado_events >= 1) {
-        sims[[i]][[j]]$stac <- 6
-      } else if (vicariant_species && species_endemism == 2) {
-        sims[[i]][[j]]$stac <- 5
-      } else if (vicariant_species && species_endemism == 3) {
-        sims[[i]][[j]]$stac <- 7
-      }
-    }
-  }
+  sims <- format_continental_data(sims)
 
   sims_max_age <- sims
 
