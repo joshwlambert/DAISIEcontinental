@@ -7,3 +7,5 @@
 ^LICENSE\.md$
 ^results$
 ^\.github$
+^data-raw$
+^docs$
