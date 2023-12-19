@@ -2,40 +2,103 @@ args <- commandArgs(TRUE)
 
 args <- as.numeric(args)
 
-i <- args[1]
+data("param_space")
 
-parameter_space <- expand.grid(
-  island_age = c(1, 5, 10),
-  clado_rate = c(0.5, 1),
-  ext_rate = c(0.1, 0.5),
-  ana_rate = c(0.1, 0.5),
-  prob_init_species = c(0.1, 0.5, 0.9),
-  prob_init_endemic = c(0.1, 0.5, 0.9)
-)
+island_clado <- param_space$island_clado[args]
+island_ex <- param_space$island_ex[args]
+island_k <- param_space$island_k[args]
+island_immig <- param_space$island_immig[args]
+island_ana <- param_space$island_ana[args]
+prob_init_pres <- param_space$prob_init_pres[args]
+prob_init_nonendemic <- 1
 
-res <- ContinentalTesting::run_continental_test(
-  island_age = parameter_space$island_age[i],
-  num_mainland_species = 100,
-  clado_rate = parameter_space$clado_rate[i],
-  ext_rate = parameter_space$ext_rate[i],
-  carrying_cap = 50,
-  immig_rate = 0.1,
-  ana_rate = parameter_space$ana_rate[i],
-  replicates = 1,
-  prob_init_species = parameter_space$prob_init_species[i],
-  prob_init_endemic = parameter_space$prob_init_endemic[i],
+daisie_continental_data <- sim_continental_island(
+  total_time = param_space$total_time[[args]],
+  m = param_space$m[args],
+  island_pars = c(island_clado,
+                  island_ex,
+                  island_k,
+                  island_immig,
+                  island_ana),
+  nonoceanic_pars = c(prob_init_pres, prob_init_nonendemic),
+  replicates = param_space$replicates[args],
+  seed = param_space$seed[args],
   verbose = TRUE
 )
 
-res <- list(res = res, params = parameter_space[i, ])
+ml <- lapply(
+  seq_along(param_space$total_time[[args]]),
+  function(x) vector("list", param_space$replicates[args])
+)
 
+for (i in seq_along(daisie_continental_data)) {
+  for (j in seq_len(param_space$replicates[args])) {
+    ml_failure <- TRUE
+    while (ml_failure) {
+      ml[[i]][[j]] <- DAISIE::DAISIE_ML_CS(
+        datalist = daisie_continental_data[[i]][[j]],
+        initparsopt = c(island_clado,
+                        island_ex,
+                        island_k,
+                        island_immig,
+                        island_ana,
+                        prob_init_pres),
+        idparsopt = 1:6,
+        parsfix = NULL,
+        idparsfix = NULL,
+        ddmodel = 11,
+        methode = "odeint::runge_kutta_fehlberg78",
+        optimmethod = "simplex",
+        jitter = 1e-5)
+      if (ml[[i]][[j]]$conv == -1) {
+        ml_failure <- TRUE
+        message("Likelihood optimisation failed retrying with new initial values")
+        island_clado <- stats::runif(n = 1,
+                                     min = island_clado / 2,
+                                     max = island_clado * 2)
+        island_ex <- stats::runif(n = 1,
+                                  min = island_ex / 2,
+                                  max = island_ex * 2)
+        island_k <- stats::runif(n = 1,
+                                 min = island_k / 2,
+                                 max = island_k * 2)
+        island_immig <- stats::runif(n = 1,
+                                     min = island_immig / 2,
+                                     max = island_immig * 2)
+        island_ana <- stats::runif(n = 1,
+                                   min = island_ana / 2,
+                                   max = island_ana * 2)
+      } else if (ml[[i]][[j]]$conv == 0) {
+        ml_failure <- FALSE
+      } else {
+        stop("Convergence error in likelihood optimisation")
+      }
+    }
+  }
+}
 
-output_name <- paste0("continental_test_param_set_", i, ".rds")
+param_diffs <- calc_param_diffs(ml = ml, param_set = param_space[args, ])
+
+output <- list(
+  daisie_continental_data = daisie_continental_data,
+  ml = ml,
+  param_diffs = param_diffs,
+  sim_params = list(
+    island_clado = param_space$island_clado[args],
+    island_ex = param_space$island_ex[args],
+    island_k = param_space$island_k[args],
+    island_immig = param_space$island_immig[args],
+    island_ana = param_space$island_ana[args],
+    prob_init_pres = param_space$prob_init_pres[args]
+  )
+)
+
+output_name <- paste0("param_set_", args, ".rds")
 
 output_folder <- file.path("results")
 
 output_file_path <- file.path(output_folder, output_name)
 
-saveRDS(object = res, file = output_file_path)
+saveRDS(object = output, file = output_file_path)
 
 message("Finished")
