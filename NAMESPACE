@@ -2,4 +2,6 @@
 
 export(continental_test_data)
 export(continental_test_sim)
+export(plot_param_diffs)
 export(run_continental_test)
+export(sim_continental_island)

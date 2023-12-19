@@ -13,7 +13,7 @@ continental_test_sim(
   immig_rate,
   ana_rate,
   replicates,
-  prob_init_species,
+  prob_init_pres,
   prob_init_endemic,
   verbose
 )
@@ -41,7 +41,7 @@ per million years)}
 \item{replicates}{Number of replicates to run the simulation and maximum
 likelihood DAISIE model}
 
-\item{prob_init_species}{Probability of a species in the mainland species
+\item{prob_init_pres}{Probability of a species in the mainland species
 pool being initially on the island (i.e. vicariant species).}
 
 \item{prob_init_endemic}{Probability of a vicariant species being endemic. If

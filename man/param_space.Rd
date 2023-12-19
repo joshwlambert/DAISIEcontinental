@@ -5,7 +5,7 @@
 \alias{param_space}
 \title{Parameter space for the analysis of the DAISIE continental model.}
 \format{
-A data frame with 72 rows and 10 variables:
+A data frame with 24 rows and 10 variables:
 \describe{
   \item{total_time}{Duration of simulation (million years)}
   \item{m}{Number of species on the mainland}

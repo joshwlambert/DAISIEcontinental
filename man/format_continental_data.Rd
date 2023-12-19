@@ -4,11 +4,11 @@
 \alias{format_continental_data}
 \title{Format the continental data simulated with DAISIE::DAISIE_sim_cr()}
 \usage{
-format_continental_data(sims)
+format_continental_data(sim)
 }
 \arguments{
-\item{sims}{List of DAISIE data, output by [DAISIE::DAISIE_sim_cr()].
-**Must have >= 1 replicate**.}
+\item{sim}{Single DAISIE data list (1 replicate), output by
+[DAISIE::DAISIE_sim_cr()].}
 }
 \value{
 DAISIE data list.
