@@ -66,6 +66,5 @@ continental_test_data <- function(data,
   }
 
   out <- list(mls = mls, data = data)
-  class(out) <- "continental_test"
   return(out)
 }

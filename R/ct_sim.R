@@ -63,7 +63,6 @@ ct_sim <- function(island_age,
       }
     }
 
-    class(mls) <- "ct"
     return(mls)
 }
 

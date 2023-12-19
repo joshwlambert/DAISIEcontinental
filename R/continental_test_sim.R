@@ -98,6 +98,5 @@ continental_test_sim <- function(island_age,
   }
 
   out <- list(mls = mls, data = sims)
-  class(out) <- "continental_test"
   return(out)
 }
