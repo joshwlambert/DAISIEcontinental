@@ -19,7 +19,7 @@
 #' @param ana_rate Rate of anagenesis (per species per million years)
 #' @param replicates Number of replicates to run the simulation and maximum
 #' likelihood DAISIE model
-#' @param prob_init_species Probability of a species in the mainland species
+#' @param prob_init_pres Probability of a species in the mainland species
 #' pool being initially on the island (i.e. vicariant species).
 #' @param prob_init_endemic Probability of a vicariant species being endemic. If
 #' a species is not endemic it is non-endemic.
@@ -53,46 +53,48 @@ continental_test_sim <- function(island_age,
                                  immig_rate,
                                  ana_rate,
                                  replicates,
-                                 prob_init_species,
+                                 prob_init_pres,
                                  prob_init_endemic,
                                  verbose) {
-  browser()
-  sims <- DAISIE::DAISIE_sim_cr(
-    time = island_age,
-    M = num_mainland_species,
-    pars = c(clado_rate, ext_rate, carrying_cap, immig_rate, ana_rate),
-    replicates = replicates,
-    divdepmodel = "CS",
-    nonoceanic_pars = c(prob_init_species, 1 - prob_init_endemic),
-    plot_sims = FALSE,
-    verbose = verbose
+  stopifnot(
+    "replicates need to be an integer larger than 1" =
+      replicates > 1
   )
-
-  sims_precise <- sims
-
-  sims <- format_continental_data(sims)
-
-  sims_max_age <- sims
-
   mls <- list()
-  for (i in seq_len(replicates)) {
-
-    mls[[i]] <- DAISIE::DAISIE_ML_CS(
-      datalist = sims_max_age[[i]],
-      initparsopt = c(
-        clado_rate,
-        ext_rate,
-        carrying_cap,
-        immig_rate,
-        ana_rate
-      ),
-      idparsopt = 1:5,
-      parsfix = 0.5,
-      idparsfix = 6,
-      ddmodel = 11,
-      methode = "lsodes",
-      optimmethod = "simplex"
+  for (i in seq_along(prob_init_pres)) {
+    sims <- DAISIE::DAISIE_sim_cr(
+      time = island_age,
+      M = num_mainland_species,
+      pars = c(clado_rate, ext_rate, carrying_cap, immig_rate, ana_rate),
+      replicates = replicates,
+      divdepmodel = "CS",
+      nonoceanic_pars = c(prob_init_pres[i], 1 - prob_init_endemic),
+      plot_sims = FALSE,
+      verbose = verbose
     )
+
+    sims <- lapply(sims, format_continental_data)
+
+    mls[[i]] <- list()
+    for (j in seq_along(sims)) {
+      mls[[i]][[j]] <- DAISIE::DAISIE_ML_CS(
+        datalist = sims[[j]],
+        initparsopt = c(
+          clado_rate,
+          ext_rate,
+          carrying_cap,
+          immig_rate,
+          ana_rate
+        ),
+        idparsopt = 1:5,
+        parsfix = prob_init_pres[i],
+        idparsfix = 6,
+        ddmodel = 11,
+        methode = "lsodes",
+        optimmethod = "simplex",
+        tol = c(1e-01, 1e-01, 1e-02)
+      )
+    }
   }
 
   out <- list(mls = mls, data = sims)
