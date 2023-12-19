@@ -1,7 +1,9 @@
 ## code to prepare `param_space` dataset goes here
 
+# consider varying probability varicariant species in endemic (prob_init_endemic = c(0.1, 0.5, 0.9))
+
 continental_test_param_space <- expand.grid(
-  total_time = c(5, 10, 50),
+  total_time = list(c(5, 10, 50)),
   m = c(500),
   island_clado = c(0.5, 1.0),
   island_ex = c(0.25, 0.5),

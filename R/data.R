@@ -4,7 +4,7 @@
 #' DAISIE continental model for the analysis of the error inferred by
 #' DAISIE's maximum likelihood model.
 #'
-#' @format A data frame with 72 rows and 10 variables:
+#' @format A data frame with 24 rows and 10 variables:
 #' \describe{
 #'   \item{total_time}{Duration of simulation (million years)}
 #'   \item{m}{Number of species on the mainland}
