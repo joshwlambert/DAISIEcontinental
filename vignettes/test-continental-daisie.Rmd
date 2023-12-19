@@ -1,0 +1,38 @@
+---
+title: "Test Continental DAISIE"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Test Continental DAISIE}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ContinentalTesting)
+```
+
+The {DAISIE} R package contains maximum likelihood models to infer island biogeographical and macroevolutionary processes on reconstructed phylogenetic data of island communities. A new model in the DAISIE model arsenal is the continental island model. This model adjusts the initial conditions of the DAISIE model and introduces a new parameter (`p`), the probability of initial presence. In other words, the parameter defines what proportion of the island community derives from a vicariance event at the origin of the island compared to colonising the island after it formed. 
+
+The {ContinentalTesting} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
+
+The package has two principal functions:
+
+* `continental_test_sim()`
+* `continental_test_data()` 
+
+These perform the same task, quantifying the estimation of the probability of initial presence on the island. The `continental_test_data()` function is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `continental_test_sim()` function is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario.
+
+For `continental_test_date()` can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. `continental_test_sim()` is to determine the precision of the model with a known value of `p`.
+
+This vignette will walk through the application of both of these functions and show how they can be used to analyse the continental DAISIE model.
+
+<body of vignette>
+
+Both `con
