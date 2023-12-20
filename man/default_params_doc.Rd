@@ -176,31 +176,6 @@ The list elements are of type `DAISIE::datalist`,
 as checked by \link{check_daisie_data}
 and can be used by \link[DAISIE]{DAISIE} (e.g. \link[DAISIE]{DAISIE_ML_CS})}
 
-\item{ideal_or_empirical_island}{the evolutionary history of
-an island from ideal or empirical data,
-as created by \link{sim_island}
-
-`ideal_or_empirical_island` is a list  containing 3 components:
-* `$branching_times`: island age, species stem age and speciation times.
-   See \link{check_branching_times} for more details
-* `$stac`: the status of the colonist,
-   see \link{stac_to_str} for values and meanings
-* `$missing_species`: number of island species that were
-not sampled for particular clade (only applicable for endemic clades)
-
-For recolonising lineages, there is an extra element,
-`all_colonisations` per list element.
-It is comprised of `$event_times` and `$species_type`:
-\describe{
-  \item{`$event_times`}{ordered numeric vectors containing all
-    events for each extant recolonising lineage. This includes all
-    colonisation and branching times. Each vector pertains to one
-    colonising lineage.}
-  \item{`$species_type`}{a string. Can be `"A"`, `"C"` or
-    `"I"` depending on whether the extant clade is of anagenetic,
-    cladogenetic or immigrant origin, respectively.}
-}}
-
 \item{species_type}{a string. Can be `"A"`, `"C"` or
 `"I"` depending on whether the extant clade is of anagenetic,
 cladogenetic or immigrant origin, respectively.}
@@ -241,10 +216,6 @@ converted to scientific notation}
 
 \item{transform}{Either `NULL` or `"ihs"` to specify no transformation of
 the data or an inverse hyperbolic sine (ihs) transformation}
-
-\item{mainland}{the evolutionary history of the mainland species,
-as created by \link{sim_mainland}.
-Use \link{plot_mainland} to visualise the that evolutionary history.}
 
 \item{age}{Numeric defining age of singleton species}
 

@@ -11,7 +11,8 @@ sim_continental_island(
   nonoceanic_pars,
   replicates,
   seed,
-  verbose
+  verbose,
+  sim_max_age = TRUE
 )
 }
 \arguments{
@@ -40,5 +41,9 @@ during the simulation.}
 A list of DAISIE data lists ([DAISIE::DAISIE_sim_cr()]).
 }
 \description{
-Simulate and format continental island DAISIE data
+Simulated DAISIE data (from [DAISIE::DAISIE_sim_cr()]) is
+augmented/formatted after the simulation in `sim_max_age = TRUE` which
+changes the endemicity status (stac) of the simulated DAISIE data. This is
+in order to be analysed by the continental DAISIE inference model.
+`sim_max_age = FALSE` leaves the simulated data with the precise ages.
 }
