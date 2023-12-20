@@ -35,7 +35,7 @@ sim_continental_island <- function(total_time,
       pars = island_pars,
       replicates = replicates,
       divdepmodel = "CS",
-      nonoceanic_pars = c(prob_init_pres, 1),
+      nonoceanic_pars = c(nonoceanic_pars[1], 1),
       plot_sims = FALSE,
       verbose = verbose
     )
