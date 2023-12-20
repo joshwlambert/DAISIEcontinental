@@ -11,7 +11,7 @@ continental_test_param_space <- expand.grid(
   island_immig = c(0.01),
   island_ana = c(0.5),
   prob_init_pres = c(0.1, 0.5, 0.9),
-  replicates = c(5),
+  replicates = c(10),
   stringsAsFactors = FALSE
 )
 seed <- sample(x = 1:100000, size = nrow(continental_test_param_space))
