@@ -10,4 +10,6 @@
 mkdir -p logs
 mkdir -p results
 ml R
-Rscript -e "remotes::install_github('joshwlambert/ContinentalTesting')"
+Rscript -e "install.packages(c('renv', 'devtools'))"
+Rscript -e "renv::restore(prompt = FALSE)"
+Rscript -e "remotes::install_github('joshwlambert/ContinentalTesting@hpc')"
