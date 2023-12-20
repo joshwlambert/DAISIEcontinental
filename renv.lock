@@ -60,7 +60,7 @@
     },
     "DAISIE": {
       "Package": "DAISIE",
-      "Version": "4.4.0",
+      "Version": "4.4.1",
       "Source": "Bioconductor",
       "Repository": "CRAN",
       "Requirements": [
@@ -83,7 +83,7 @@
         "testit",
         "utils"
       ],
-      "Hash": "8437dc5978aa330cbe2c3bb14450c18c"
+      "Hash": "e5de9e1757055065ab2bde89a7c7d205"
     },
     "DDD": {
       "Package": "DDD",
