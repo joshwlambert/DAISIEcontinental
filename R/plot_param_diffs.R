@@ -85,6 +85,19 @@ plot_param_diffs <- function(param_set,
     prob_init_pres_diffs = param_diffs_list$prob_init_pres_diffs
   )
 
+  # Fix build warnings
+  group <- NULL; rm(group)
+  clado <- NULL; rm(clado)
+  ext <- NULL; rm(ext)
+  immig <- NULL; rm(immig)
+  ana <- NULL; rm(ana)
+  prob_init_pres <- NULL; rm(prob_init_pres)
+  clado_diffs <- NULL; rm(clado_diffs)
+  ext_diffs <- NULL; rm(ext_diffs)
+  immig_diffs <- NULL; rm(immig_diffs)
+  ana_diffs <- NULL; rm(ana_diffs)
+  prob_init_pres_diffs <- NULL; rm(prob_init_pres_diffs)
+
   if (is.null(transform)) {
     breaks <- scales::extended_breaks()
     trans <- "identity"
