@@ -1,5 +1,11 @@
 #' Simulate and format continental island DAISIE data
 #'
+#' @description Simulated DAISIE data (from [DAISIE::DAISIE_sim_cr()]) is
+#' augmented/formatted after the simulation in `sim_max_age = TRUE` which
+#' changes the endemicity status (stac) of the simulated DAISIE data. This is
+#' in order to be analysed by the continental DAISIE inference model.
+#' `sim_max_age = FALSE` leaves the simulated data with the precise ages.
+#'
 #' @inheritParams default_params_doc
 #'
 #' @return A list of DAISIE data lists ([DAISIE::DAISIE_sim_cr()]).
@@ -10,7 +16,8 @@ sim_continental_island <- function(total_time,
                                    nonoceanic_pars,
                                    replicates,
                                    seed,
-                                   verbose) {
+                                   verbose,
+                                   sim_max_age = TRUE) {
   sims <- list()
   for (i in seq_along(total_time)) {
 
@@ -33,24 +40,27 @@ sim_continental_island <- function(total_time,
       verbose = verbose
     )
 
-    for (j in seq_along(sims[[1]])) {
-      sim <- sims[[1]][[j]]
-      for (k in 2:length(sim)) {
-        vicariant_species <-
-          sim[[k]]$branching_times[1] == sim[[k]]$branching_times[2]
-        species_endemism <-  sim[[k]]$stac
-        num_clado_events <- length(sim[[k]]$branching_times) - 1
-        if (vicariant_species && species_endemism == 4) {
-          sim[[k]]$stac <- 1
-        } else if (vicariant_species && species_endemism == 2 && num_clado_events >= 1) {
-          sim[[k]]$stac <- 6
-        } else if (vicariant_species && species_endemism == 2) {
-          sim[[k]]$stac <- 5
-        } else if (vicariant_species && species_endemism == 3) {
-          sim[[k]]$stac <- 7
+    # augment DAISIE data list to make vicariant species max ages
+    if (sim_max_age) {
+      for (j in seq_along(sims[[1]])) {
+        sim <- sims[[1]][[j]]
+        for (k in 2:length(sim)) {
+          vicariant_species <-
+            sim[[k]]$branching_times[1] == sim[[k]]$branching_times[2]
+          species_endemism <-  sim[[k]]$stac
+          num_clado_events <- length(sim[[k]]$branching_times) - 1
+          if (vicariant_species && species_endemism == 4) {
+            sim[[k]]$stac <- 1
+          } else if (vicariant_species && species_endemism == 2 && num_clado_events >= 1) {
+            sim[[k]]$stac <- 6
+          } else if (vicariant_species && species_endemism == 2) {
+            sim[[k]]$stac <- 5
+          } else if (vicariant_species && species_endemism == 3) {
+            sim[[k]]$stac <- 7
+          }
         }
+        sims[[1]][[j]] <- sim
       }
-      sims[[1]][[j]] <- sim
     }
   }
 
