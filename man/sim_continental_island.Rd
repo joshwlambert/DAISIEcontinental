@@ -31,11 +31,20 @@ units.}
   \item{`island_pars[5]`: lambda^a (anagenesis rate)}
   }}
 
+\item{nonoceanic_pars}{A vector of two numerics with the probability of
+initial presence and the probability of a vicariant species being nonendemic
+respectively}
+
 \item{replicates}{Integer specifying number of island replicates to be
 simulated.}
 
+\item{seed}{Integer specifying the seed to set before simulating data}
+
 \item{verbose}{Logical, determining if progress output should be printed
-during the simulation.}
+during the simulation}
+
+\item{sim_max_age}{Logical, whether to augment the simulated DAISIE data to
+convert vicariant species to max age (stacs)}
 }
 \value{
 A list of DAISIE data lists ([DAISIE::DAISIE_sim_cr()]).

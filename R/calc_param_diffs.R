@@ -1,7 +1,7 @@
 #' Calculates the differences in parameter estimates (cladogenesis, extinction,
 #' carrying capacity, colonisation, and anagenesis) from the DAISIE maximum
 #' likelihood model fitted to the ideal and empirical data sets simulated from
-#' `sim_island_with_mainland`.
+#' [sim_continental_island()]
 #'
 #' @inheritParams default_params_doc
 #'
