@@ -3,6 +3,11 @@
 # estimating all parameters except the probability of initial presence which is
 # fixed
 
+# ensure data from {MadIsland} is available
+if (!requireNamespace("MadIsland", quietly = TRUE)) {
+  remotes::install_github("joshwlambert/MadIsland")
+}
+
 args <- commandArgs(TRUE)
 
 args <- as.numeric(args)
