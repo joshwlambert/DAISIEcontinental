@@ -21,6 +21,7 @@ plot_param_diffs <- function(param_set,
   } else {
     file_paths <- as.list(paste0(data_folder_path, "/", files))
     results_list <- lapply(file_paths, readRDS)
+    results_list <- results_list[[1]]
   }
 
   # this is hardcoded to assume three island ages
@@ -77,11 +78,11 @@ plot_param_diffs <- function(param_set,
     immig = immig,
     ana = ana,
     prob_init_pres = prob_init_pres,
-    clado_diffs = young_clado_diffs,
-    ext_diffs = young_ext_diffs,
-    immig_diffs = young_immig_diffs,
-    ana_diffs = young_ana_diffs,
-    prob_init_pres_diffs = young_prob_init_pres_diffs
+    clado_diffs = param_diffs_list$clado_diffs,
+    ext_diffs = param_diffs_list$ext_diffs,
+    immig_diffs = param_diffs_list$immig_diffs,
+    ana_diffs = param_diffs_list$ana_diffs,
+    prob_init_pres_diffs = param_diffs_list$prob_init_pres_diffs
   )
 
   if (is.null(transform)) {
