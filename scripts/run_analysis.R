@@ -12,7 +12,7 @@ island_ana <- param_space$island_ana[args]
 prob_init_pres <- param_space$prob_init_pres[args]
 prob_init_nonendemic <- 1
 
-daisie_continental_data <- sim_continental_island(
+daisie_continental_data <- ContinentalTesting::sim_continental_island(
   total_time = param_space$total_time[[args]],
   m = param_space$m[args],
   island_pars = c(island_clado,
@@ -77,7 +77,10 @@ for (i in seq_along(daisie_continental_data)) {
   }
 }
 
-param_diffs <- calc_param_diffs(ml = ml, param_set = param_space[args, ])
+param_diffs <- ContinentalTesting::calc_param_diffs(
+  ml = ml,
+  param_set = param_space[args, ]
+)
 
 output <- list(
   daisie_continental_data = daisie_continental_data,
