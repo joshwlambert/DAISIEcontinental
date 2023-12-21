@@ -6,7 +6,7 @@
 #' @inheritParams default_params_doc
 #'
 #' @return A list of five numeric vectors
-#' @author Joshua W. Lambert
+#' @export
 calc_param_diffs <- function(ml, param_set) {
 
   clado_diffs <- list()

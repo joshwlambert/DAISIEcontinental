@@ -25,6 +25,3 @@ carrying capacity, colonisation, and anagenesis) from the DAISIE maximum
 likelihood model fitted to the ideal and empirical data sets simulated from
 [sim_continental_island()]
 }
-\author{
-Joshua W. Lambert
-}
