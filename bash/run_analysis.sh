@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=analysis
 #SBATCH --output=/home3/p287218/ContinentalTesting/logs/analysis%a.log
-#SBATCH --array=1-24
+#SBATCH --array=1-12
 #SBATCH --mem=5GB
 
 ml R
