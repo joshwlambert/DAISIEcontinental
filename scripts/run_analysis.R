@@ -38,21 +38,43 @@ for (i in seq_along(daisie_continental_data)) {
   for (j in seq_len(param_space$replicates[args])) {
     ml_failure <- TRUE
     while (ml_failure) {
-      ml[[i]][[j]] <- DAISIE::DAISIE_ML_CS(
-        datalist = daisie_continental_data[[i]][[j]],
-        initparsopt = c(island_clado,
-                        island_ex,
-                        island_k,
-                        island_immig,
-                        island_ana,
-                        prob_init_pres),
-        idparsopt = 1:6,
-        parsfix = NULL,
-        idparsfix = NULL,
-        ddmodel = 11,
-        methode = "odeint::runge_kutta_fehlberg78",
-        optimmethod = "simplex",
-        jitter = 1e-5)
+      optim_ana <- ContinentalTesting::any_nonendemics(
+        daisie_data_list = daisie_continental_data[[i]][[j]]
+      )
+      if (optim_ana) {
+        ml[[i]][[j]] <- DAISIE::DAISIE_ML_CS(
+          datalist = daisie_continental_data[[i]][[j]],
+          initparsopt = c(island_clado,
+                          island_ex,
+                          island_k,
+                          island_immig,
+                          island_ana,
+                          prob_init_pres),
+          idparsopt = 1:6,
+          parsfix = NULL,
+          idparsfix = NULL,
+          ddmodel = 11,
+          methode = "odeint::runge_kutta_fehlberg78",
+          optimmethod = "simplex",
+          jitter = 1e-5
+        )
+      } else {
+        ml[[i]][[j]] <- DAISIE::DAISIE_ML_CS(
+          datalist = daisie_continental_data[[i]][[j]],
+          initparsopt = c(island_clado,
+                          island_ex,
+                          island_k,
+                          island_immig,
+                          prob_init_pres),
+          idparsopt = c(1:4, 6),
+          parsfix = 0.5,
+          idparsfix = 5,
+          ddmodel = 11,
+          methode = "odeint::runge_kutta_fehlberg78",
+          optimmethod = "simplex",
+          jitter = 1e-5
+        )
+      }
       if (ml[[i]][[j]]$conv == -1) {
         ml_failure <- TRUE
         message("Likelihood optimisation failed retrying with new initial values")
