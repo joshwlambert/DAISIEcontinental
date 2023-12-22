@@ -17,3 +17,10 @@ A single logical.
 Determine if the island community (DAISIE data) contains any non-endemic
 lineages
 }
+\details{
+This basic function assumes recolonists have at least one
+non-endemic species, which may not be the case. For the purposes of using
+`any_nonendemics()` in `ContinentalTesting` this does not matter, but **do
+not use this function to precisely determine whether DAISIE data contains
+non-endemic species.**
+}

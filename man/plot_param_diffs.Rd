@@ -17,8 +17,8 @@ plot_param_diffs(
 )
 }
 \arguments{
-\item{param_set}{Numeric for the index of the parameter set from the
-parameter space}
+\item{param_set}{A single row `data.frame` with the parameters used for the
+simulation (i.e. one parameter set from the parameter space)}
 
 \item{data_folder_path}{String specifying the directory the data is read
 from}

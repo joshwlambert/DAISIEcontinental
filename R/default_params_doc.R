@@ -5,8 +5,8 @@
 #' @param scientific A boolean determining whether the axis labels will be
 #' converted to scientific notation
 #' @param breaks A vector of numerics
-#' @param param_set Numeric for the index of the parameter set from the
-#' parameter space
+#' @param param_set A single row `data.frame` with the parameters used for the
+#' simulation (i.e. one parameter set from the parameter space)
 #' @param data_folder_path String specifying the directory the data is read
 #' from
 #' @param output_file_path String specifying the directory the file is saved
