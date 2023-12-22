@@ -21,7 +21,9 @@ Depends:
   R (>= 4.1.0)
 Imports:
   DAISIE,
-  ggplot2
+  ggplot2,
+  scales,
+  cowplot
 Suggests: 
     knitr,
     rmarkdown
