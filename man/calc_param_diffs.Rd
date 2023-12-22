@@ -13,8 +13,8 @@ calc_param_diffs(ml, param_set)
 \item{ml}{A list of DAISIE data lists [DAISIE::DAISIE_ML_CS()] to calculate
 the difference in parameter estimates}
 
-\item{param_set}{Numeric for the index of the parameter set from the
-parameter space}
+\item{param_set}{A single row `data.frame` with the parameters used for the
+simulation (i.e. one parameter set from the parameter space)}
 }
 \value{
 A list of five numeric vectors
