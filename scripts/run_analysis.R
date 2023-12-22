@@ -31,6 +31,9 @@ ml <- lapply(
   function(x) vector("list", param_space$replicates[args])
 )
 
+message("Number of likelihood integration steps permitted:")
+DAISIE::DAISIE_CS_max_steps(1e8)
+
 for (i in seq_along(daisie_continental_data)) {
   for (j in seq_len(param_space$replicates[args])) {
     ml_failure <- TRUE
