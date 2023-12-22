@@ -20,7 +20,8 @@ default_params_doc(
   replicates,
   seed,
   verbose,
-  sim_max_age
+  sim_max_age,
+  daisie_data_list
 )
 }
 \arguments{
@@ -76,6 +77,8 @@ during the simulation}
 
 \item{sim_max_age}{Logical, whether to augment the simulated DAISIE data to
 convert vicariant species to max age (stacs)}
+
+\item{daisie_data_list}{A single DAISIE data list (i.e. single replicate).}
 }
 \value{
 Nothing

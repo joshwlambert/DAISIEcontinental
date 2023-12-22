@@ -37,6 +37,7 @@
 #' during the simulation
 #' @param sim_max_age Logical, whether to augment the simulated DAISIE data to
 #' convert vicariant species to max age (stacs)
+#' @param daisie_data_list A single DAISIE data list (i.e. single replicate).
 #'
 #' @return Nothing
 #' @author Joshua W. Lambert
@@ -55,6 +56,7 @@ default_params_doc <- function(signif,
                                replicates,
                                seed,
                                verbose,
-                               sim_max_age) {
+                               sim_max_age,
+                               daisie_data_list) {
   # Nothing
 }
