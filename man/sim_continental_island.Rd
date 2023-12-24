@@ -9,7 +9,7 @@ sim_continental_island(
   m,
   island_pars,
   nonoceanic_pars,
-  replicates,
+  replicate,
   seed,
   verbose,
   sim_max_age = TRUE
@@ -34,9 +34,6 @@ units.}
 \item{nonoceanic_pars}{A vector of two numerics with the probability of
 initial presence and the probability of a vicariant species being nonendemic
 respectively}
-
-\item{replicates}{Integer specifying number of island replicates to be
-simulated.}
 
 \item{seed}{Integer specifying the seed to set before simulating data}
 
