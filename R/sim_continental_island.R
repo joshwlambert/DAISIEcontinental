@@ -19,10 +19,9 @@ sim_continental_island <- function(total_time,
                                    verbose,
                                    sim_max_age = TRUE) {
   sims <- list()
+  seed <- replicate * seed
   for (i in seq_along(total_time)) {
-
     # set seed for each island age sim to be as similar as possible
-    seed <- replicate * seed
     message("Replicate seed: ", seed)
     set.seed(
       seed,
