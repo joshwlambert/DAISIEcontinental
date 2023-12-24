@@ -1,4 +1,4 @@
-#' Documentation for function arguments in the ContinentalTesting package
+#' Documentation for function arguments in the DAISIEcontinental package
 #'
 #' @param signif A numeric specifying how many significant figures the axes
 #' labels have when plotting

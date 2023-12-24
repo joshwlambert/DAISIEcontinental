@@ -21,7 +21,7 @@ A data frame with 24 rows and 10 variables:
 }
 }
 \usage{
-data("param_space", package = "ContinentalTesting")
+data("param_space", package = "DAISIEcontinental")
 }
 \description{
 A dataset containing the parameter sets (rows) for the simulation of the

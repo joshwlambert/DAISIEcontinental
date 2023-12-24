@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(ContinentalTesting)
+library(DAISIEcontinental)
 
-test_check("ContinentalTesting")
+test_check("DAISIEcontinental")

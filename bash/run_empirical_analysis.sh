@@ -4,9 +4,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=empirical_analysis
-#SBATCH --output=/home3/p287218/ContinentalTesting/logs/empirical_analysis%a.log
+#SBATCH --output=/home3/p287218/DAISIEcontinental/logs/empirical_analysis%a.log
 #SBATCH --array=1-45
 #SBATCH --mem=5GB
 
 ml R
-Rscript /home3/p287218/ContinentalTesting/scripts/run_empirical_analysis.R ${SLURM_ARRAY_TASK_ID}
+Rscript /home3/p287218/DAISIEcontinental/scripts/run_empirical_analysis.R ${SLURM_ARRAY_TASK_ID}

@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(ContinentalTesting)
+library(DAISIEcontinental)
 ```
 
 The {DAISIE} R package contains maximum likelihood models to infer island biogeographical and macroevolutionary processes on reconstructed phylogenetic data of island communities. A new model in the DAISIE model arsenal is the continental island model. This model adjusts the initial conditions of the DAISIE model and introduces a new parameter (`p`), the probability of initial presence. In other words, the parameter defines what proportion of the island community derives from a vicariance event at the origin of the island compared to colonising the island after it formed. 
 
-The {ContinentalTesting} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
+The {DAISIEcontinental} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
 
 The package has two principal functions:
 
