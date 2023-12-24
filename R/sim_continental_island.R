@@ -14,7 +14,7 @@ sim_continental_island <- function(total_time,
                                    m,
                                    island_pars,
                                    nonoceanic_pars,
-                                   replicates,
+                                   replicate,
                                    seed,
                                    verbose,
                                    sim_max_age = TRUE) {
@@ -22,6 +22,8 @@ sim_continental_island <- function(total_time,
   for (i in seq_along(total_time)) {
 
     # set seed for each island age sim to be as similar as possible
+    seed <- replicate * seed
+    message("Replicate seed: ", seed)
     set.seed(
       seed,
       kind = "Mersenne-Twister",
@@ -33,7 +35,7 @@ sim_continental_island <- function(total_time,
       time = total_time[i],
       M = m,
       pars = island_pars,
-      replicates = replicates,
+      replicates = 1,
       divdepmodel = "CS",
       nonoceanic_pars = c(nonoceanic_pars[1], 1),
       plot_sims = FALSE,
