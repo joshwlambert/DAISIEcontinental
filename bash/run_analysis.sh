@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=analysis
-#SBATCH --output=/home3/p287218/DAISIEcontinental/logs/analysis%a.log
+#SBATCH --output=/home3/p287218/DAISIEcontinental/logs/%x-%j-array-%a.log
 #SBATCH --array=1-10
 #SBATCH --mem=5GB
 
