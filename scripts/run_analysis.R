@@ -119,7 +119,7 @@ output <- list(
   )
 )
 
-output_name <- paste0("param_set_", param_set_idx, ".rds")
+output_name <- paste0("param_set_", param_set_idx, "_", replicate, ".rds")
 
 output_folder <- file.path("results")
 
