@@ -35,6 +35,9 @@ units.}
 initial presence and the probability of a vicariant species being nonendemic
 respectively}
 
+\item{replicate}{Integer specifying which replicates in the array is being
+simulated}
+
 \item{seed}{Integer specifying the seed to set before simulating data}
 
 \item{verbose}{Logical, determining if progress output should be printed
