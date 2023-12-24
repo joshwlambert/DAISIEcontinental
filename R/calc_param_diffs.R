@@ -8,7 +8,6 @@
 #' @return A list of five numeric vectors
 #' @export
 calc_param_diffs <- function(ml, param_set) {
-browser()
   clado_diffs <- c()
   ext_diffs <- c()
   k_diffs <- c()
