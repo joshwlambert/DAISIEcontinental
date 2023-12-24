@@ -22,7 +22,7 @@ for (i in seq_along(ml)) {
 }
 
 test_that("calc_param_diffs works as expected", {
-  param_diffs <- ContinentalTesting::calc_param_diffs(
+  param_diffs <- DAISIEcontinental::calc_param_diffs(
     ml = ml,
     param_set = param_space[1, ]
   )

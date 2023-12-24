@@ -18,5 +18,5 @@
 #'   \item{replicates}{Number or island replicates}
 #'   \item{seed}{Sets the random number generator seed}
 #' }
-#' @usage data("param_space", package = "ContinentalTesting")
+#' @usage data("param_space", package = "DAISIEcontinental")
 "param_space"

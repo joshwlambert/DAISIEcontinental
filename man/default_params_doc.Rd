@@ -2,7 +2,7 @@
 % Please edit documentation in R/default_params_doc.R
 \name{default_params_doc}
 \alias{default_params_doc}
-\title{Documentation for function arguments in the ContinentalTesting package}
+\title{Documentation for function arguments in the DAISIEcontinental package}
 \usage{
 default_params_doc(
   signif,
@@ -84,7 +84,7 @@ convert vicariant species to max age (stacs)}
 Nothing
 }
 \description{
-Documentation for function arguments in the ContinentalTesting package
+Documentation for function arguments in the DAISIEcontinental package
 }
 \author{
 Joshua W. Lambert

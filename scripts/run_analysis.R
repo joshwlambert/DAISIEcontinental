@@ -12,7 +12,7 @@ island_ana <- param_space$island_ana[args]
 prob_init_pres <- param_space$prob_init_pres[args]
 prob_init_nonendemic <- 1
 
-daisie_continental_data <- ContinentalTesting::sim_continental_island(
+daisie_continental_data <- DAISIEcontinental::sim_continental_island(
   total_time = param_space$total_time[[args]],
   m = param_space$m[args],
   island_pars = c(island_clado,
@@ -38,7 +38,7 @@ for (i in seq_along(daisie_continental_data)) {
   for (j in seq_len(param_space$replicates[args])) {
     ml_failure <- TRUE
     while (ml_failure) {
-      optim_ana <- ContinentalTesting::any_nonendemics(
+      optim_ana <- DAISIEcontinental::any_nonendemics(
         daisie_data_list = daisie_continental_data[[i]][[j]]
       )
       if (optim_ana) {
@@ -102,7 +102,7 @@ for (i in seq_along(daisie_continental_data)) {
   }
 }
 
-param_diffs <- ContinentalTesting::calc_param_diffs(
+param_diffs <- DAISIEcontinental::calc_param_diffs(
   ml = ml,
   param_set = param_space[args, ]
 )
