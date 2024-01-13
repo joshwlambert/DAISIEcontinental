@@ -4,10 +4,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=empirical_analysis
-#SBATCH --output=/home3/p287218/DAISIEcontinental/logs/empirical_analysis%a.log
-#SBATCH --array=1-45
+#SBATCH --output=/home3/p287218/DAISIEcontinental/logs/%x-%j-array-%a.log
+#SBATCH --array=1-20
 #SBATCH --mem=5GB
 
 module purge
 ml R
-Rscript /home3/p287218/DAISIEcontinental/scripts/run_empirical_analysis.R ${SLURM_ARRAY_TASK_ID}
+Rscript /home3/p287218/DAISIEcontinental/scripts/run_empirical_analysis.R $1 ${SLURM_ARRAY_TASK_ID}
