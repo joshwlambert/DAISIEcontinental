@@ -5,7 +5,7 @@
 \alias{param_space}
 \title{Parameter space for the analysis of the DAISIE continental model.}
 \format{
-A data frame with 24 rows and 10 variables:
+A data frame with 12 rows and 9 variables:
 \describe{
   \item{total_time}{Duration of simulation (million years)}
   \item{m}{Number of species on the mainland}
@@ -16,7 +16,6 @@ A data frame with 24 rows and 10 variables:
   \item{island_ana}{Rate of anagenesis on the island}
   \item{prob_init_pres}{Probability of a mainland species being initially
     present on the island when it forms}
-  \item{replicates}{Number or island replicates}
   \item{seed}{Sets the random number generator seed}
 }
 }

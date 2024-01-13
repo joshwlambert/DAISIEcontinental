@@ -1,24 +1,19 @@
 total_time <- c(1, 2, 3)
 replicates <- 2
-ml <- ml <- lapply(
-  seq_along(total_time),
-  function(x) vector("list", replicates)
-)
+ml <- vector("list", length(total_time))
 
 for (i in seq_along(ml)) {
-  for (j in seq_len(2)) {
-    ml[[i]][[j]] <- data.frame(
-      lambda_c = runif(n = 1, 0.5, 2),
-      mu = runif(n = 1, 0.5, 2),
-      K = runif(n = 1, 1, 20),
-      gamma = runif(n = 1, 0.001, 0.1),
-      lambda_a = runif(n = 1, 0.5, 2),
-      prob_init_pres = runif(n = 1, 0.01, 1),
-      loglik = runif(n = 1, -100, -50),
-      df = 6,
-      conv = 0
-    )
-  }
+  ml[[i]] <- data.frame(
+    lambda_c = runif(n = 1, 0.5, 2),
+    mu = runif(n = 1, 0.5, 2),
+    K = runif(n = 1, 1, 20),
+    gamma = runif(n = 1, 0.001, 0.1),
+    lambda_a = runif(n = 1, 0.5, 2),
+    prob_init_pres = runif(n = 1, 0.01, 1),
+    loglik = runif(n = 1, -100, -50),
+    df = 6,
+    conv = 0
+  )
 }
 
 test_that("calc_param_diffs works as expected", {

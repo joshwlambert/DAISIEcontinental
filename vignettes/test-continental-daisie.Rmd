@@ -36,3 +36,68 @@ This vignette will walk through the application of both of these functions and s
 <body of vignette>
 
 Both `con
+
+
+## New
+
+## Reproducing parameter estimation analysis
+
+### Running the analysis on the HPC
+
+* Clone the repository
+* Change the working directory into `/DAISIEcontinental`
+* Install the repository by running `sbatch bash/install_DAISIEcontinental.sh`
+* Once the installation has finished, run the analysis this requires multiple
+steps.
+
+The analysis cannot be submitted using a single command. This is because the 
+analysis is run over a parameter space, with each parameter set being run
+for several replicates. Each replicate is a single job submitted by job array
+(see `bash/run_analysis.sh`).
+
+Each parameter set in the parameter space cannot be submitted by a single 
+bash script as it would require two job arrays, one going over the parameter
+sets and a second over the replicates. However, this case (which could be set
+up by having a master bash script which arrays over the parameter space which
+submits multiple lower-level bash scripts each submitting multiple replicates)
+does not work in practise as it would write the logs of multiple jobs to the 
+same log file. This cannot be worked around as the `#!/bin/bash` bash header
+does not accept arguments to name the output log files.
+
+Therefore, what works is to manually submit each parameter set manually by
+specifying the parameter set index with an argument to the bash script. There
+are 12 parameter sets so the entire parameter space can be run by running the 
+following commands (still with `DAISIEcontinental` as the working directory):
+
+* `sbatch bash/run_analysis.sh 1`
+* `sbatch bash/run_analysis.sh 2`
+* `sbatch bash/run_analysis.sh 3`
+* ...
+* `sbatch bash/run_analysis.sh 10`
+* `sbatch bash/run_analysis.sh 11`
+* `sbatch bash/run_analysis.sh 12`
+
+This results in each log and results file having a unique file name and each
+job writing to a single file.
+
+The reasoning for having the the jobs so distributed, i.e. each job only runs
+a single replicate for three different island ages, is because running more
+simulations and model fitting sequantially does not scale well for the number
+of replicates. To ensure an adequate sample size of results the model should be
+run for each island age and each parameter set several hundred times, to account
+for model stochasticity. Simulations that have a large community size (number of
+species) take several minutes to run each. If these were to run sequentially
+for, say 500 replicates, each with three island ages, totalling 1500 replicates
+it would take an exceedingly long time to compute. The setup implemented
+reduces this run time by running replicates over separate cores on a cluster.
+
+The results can then be copied to a directory in `\inst` called 
+`pre_processed_daisie_results`. If this folder is not already present it can be
+created by running `mkdir inst/pre_processed_daisie_results`. The results can
+be copied by running `cp -r results/ inst/pre_processed_daisie_results`. These
+results can then be pushed to the repository.
+
+## Processing DAISIE results
+
+Before plotting the results, they need to be collated and formatted. This is
+done by using the `post_process_daisie_results()` function.

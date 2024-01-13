@@ -4,7 +4,7 @@
 #' DAISIE continental model for the analysis of the error inferred by
 #' DAISIE's maximum likelihood model.
 #'
-#' @format A data frame with 24 rows and 10 variables:
+#' @format A data frame with 12 rows and 9 variables:
 #' \describe{
 #'   \item{total_time}{Duration of simulation (million years)}
 #'   \item{m}{Number of species on the mainland}
@@ -15,7 +15,6 @@
 #'   \item{island_ana}{Rate of anagenesis on the island}
 #'   \item{prob_init_pres}{Probability of a mainland species being initially
 #'     present on the island when it forms}
-#'   \item{replicates}{Number or island replicates}
 #'   \item{seed}{Sets the random number generator seed}
 #' }
 #' @usage data("param_space", package = "DAISIEcontinental")

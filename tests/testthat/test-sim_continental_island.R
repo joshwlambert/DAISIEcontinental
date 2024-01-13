@@ -4,13 +4,13 @@ test_that("sim_continental_island works as expected", {
     m = 100,
     island_pars = c(0.5, 0.5, 50, 0.01, 0.5),
     nonoceanic_pars = c(0.1, 1),
-    replicates = 3,
+    replicate = 1,
     seed = 123,
     verbose = FALSE,
     sim_max_age = TRUE
   )
   expect_length(sims, 1)
-  expect_equal(lengths(sims), 3)
+  expect_length(sims[[1]][[1]], 6)
 })
 
 test_that("sim_continental_island works with multiple total_times", {
@@ -19,13 +19,13 @@ test_that("sim_continental_island works with multiple total_times", {
     m = 100,
     island_pars = c(0.5, 0.5, 50, 0.01, 0.5),
     nonoceanic_pars = c(0.1, 1),
-    replicates = 3,
+    replicate = 1,
     seed = 123,
     verbose = FALSE,
     sim_max_age = TRUE
   )
   expect_length(sims, 2)
-  expect_equal(lengths(sims), c(3, 3))
+  expect_length(sims[[1]][[1]], 5)
 })
 
 test_that("sim_continental_island works with sim_max_age = FALSE", {
@@ -34,11 +34,11 @@ test_that("sim_continental_island works with sim_max_age = FALSE", {
     m = 100,
     island_pars = c(0.5, 0.5, 50, 0.01, 0.5),
     nonoceanic_pars = c(0.1, 1),
-    replicates = 3,
+    replicate = 1,
     seed = 123,
     verbose = FALSE,
     sim_max_age = FALSE
   )
   expect_length(sims, 2)
-  expect_equal(lengths(sims), c(3, 3))
+  expect_length(sims[[1]][[1]], 5)
 })

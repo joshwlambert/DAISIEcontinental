@@ -30,8 +30,8 @@
 #' @param nonoceanic_pars A vector of two numerics with the probability of
 #' initial presence and the probability of a vicariant species being nonendemic
 #' respectively
-#' @param replicates Integer specifying number of island replicates to be
-#' simulated.
+#' @param replicate Integer specifying which replicates in the array is being
+#' simulated
 #' @param seed Integer specifying the seed to set before simulating data
 #' @param verbose Logical, determining if progress output should be printed
 #' during the simulation
@@ -53,7 +53,7 @@ default_params_doc <- function(signif,
                                m,
                                island_pars,
                                nonoceanic_pars,
-                               replicates,
+                               replicate,
                                seed,
                                verbose,
                                sim_max_age,
