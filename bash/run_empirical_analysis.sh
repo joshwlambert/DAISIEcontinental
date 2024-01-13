@@ -8,5 +8,6 @@
 #SBATCH --array=1-45
 #SBATCH --mem=5GB
 
+module purge
 ml R
 Rscript /home3/p287218/DAISIEcontinental/scripts/run_empirical_analysis.R ${SLURM_ARRAY_TASK_ID}
