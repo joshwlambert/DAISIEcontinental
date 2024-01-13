@@ -130,7 +130,7 @@ output <- list(
   taxonomic_group = param_set$taxonomic_group
 )
 
-output_name <- paste0("empirical_param_set_", param_set_idx, "_", replicate ".rds")
+output_name <- paste0("empirical_param_set_", param_set_idx, "_", replicate, ".rds")
 
 output_folder <- file.path("results")
 
