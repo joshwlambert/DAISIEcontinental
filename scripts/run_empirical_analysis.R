@@ -3,11 +3,6 @@
 # estimating all parameters except the probability of initial presence which is
 # fixed
 
-# ensure data from {MadIsland} is available
-if (!requireNamespace("MadIsland", quietly = TRUE)) {
-  remotes::install_github("joshwlambert/MadIsland")
-}
-
 args <- commandArgs(TRUE)
 
 args <- as.numeric(args)
@@ -25,13 +20,13 @@ param_space <- expand.grid(
 
 param_set <- param_space[args, ]
 
-data <- switch(param_set$taxonomic_group,
-  amphibian = MadIsland::amp_ddl_dna_ds_asr,
-  bird = MadIsland::bird_ddl_dna_ds_asr,
-  nonvolant_mammal = MadIsland::nvm_ddl_dna_ds_asr,
-  squamate = MadIsland::squa_ddl_dna_ds_asr,
-  volant_mammal =MadIsland::vm_ddl_dna_ds_asr
-)
+data <- get(switch(param_set$taxonomic_group,
+  amphibian = load(system.file("madagascar_data", "amp_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
+  bird = load(system.file("madagascar_data", "bird_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
+  nonvolant_mammal = load(system.file("madagascar_data", "nvm_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
+  squamate = load(system.file("madagascar_data", "squa_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
+  volant_mammal = load(system.file("madagascar_data", "vm_ddl_dna_ds_asr.rda", package = "DAISIEcontinental"))
+))
 
 ml <- vector("list", length(data))
 
