@@ -51,8 +51,8 @@ while (ml_failure) {
     parsfix = NULL,
     idparsfix = NULL,
     ddmodel = 11,
-    methode = "odeint::runge_kutta_fehlberg78",
-    optimmethod = "simplex",
+    methode = "lsodes",
+    optimmethod = "subplex",
     res = 500
   )
   if (init_params$conv == -1) {
@@ -95,8 +95,8 @@ while (ml_failure) {
     parsfix = param_set$prob_init_pres,
     idparsfix = 6,
     ddmodel = 11,
-    methode = "odeint::runge_kutta_fehlberg78",
-    optimmethod = "simplex",
+    methode = "lsodes",
+    optimmethod = "subplex",
     res = 500
   )
   if (ml$conv == -1) {
