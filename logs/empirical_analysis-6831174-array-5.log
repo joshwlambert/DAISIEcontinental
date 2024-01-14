@@ -1,0 +1,43 @@
+/var/spool/slurmd/job6831174/slurm_script: line 11: module: command not found
+/var/spool/slurmd/job6831174/slurm_script: line 12: ml: command not found
+/var/spool/slurmd/job6831174/slurm_script: line 13: Rscript: command not found
+
+###############################################################################
+Hábrók Cluster
+Job 6831071_5 for user p287218
+Finished at: Sat Jan 13 17:28:25 CET 2024
+
+Job details:
+============
+
+Job ID              : 6831071_5
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes4
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : FAILED
+Submit              : 2024-01-13T17:12:30
+Start               : 2024-01-13T17:26:22
+End                 : 2024-01-13T17:28:25
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:02:03
+Used CPU time       : --
+% User (Computation):  0.00%
+% System (I/O)      : 71.43%
+Mem reserved        : 5G
+Max Mem (Node/step) : 76.00K (gelifes4, per node)
+Full Max Mem usage  : 76.00K
+Total Disk Read     : 2.28K
+Total Disk Write    : 1.00 
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
