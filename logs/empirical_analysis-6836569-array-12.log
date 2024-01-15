@@ -1,0 +1,212 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+DLSODES- At current T (=R1), MXSTEP (=I1) steps   
+      taken on this call before reaching TOUT     
+In above message, I1 = 5000
+ 
+In above message, R1 = -4.33756
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.99299e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.99299e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.99299e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.99299e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 5.48784e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 5.48784e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 5.48784e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 5.48784e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34675e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34675e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.37208e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.37208e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34944e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34944e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.41242e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.41242e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.36147e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.36147e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34944e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 1.34944e-16
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.52759e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.52759e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.65033e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.65033e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.54062e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.54062e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.84588e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.84588e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.59893e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.59893e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.54062e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 6.54062e-15
+ 
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6836557_12 for user p287218
+Finished at: Sun Jan 14 22:11:38 CET 2024
+
+Job details:
+============
+
+Job ID              : 6836557_12
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes4
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T21:20:00
+Start               : 2024-01-14T21:20:01
+End                 : 2024-01-14T22:11:37
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:51:36
+Used CPU time       :   00:51:11 (efficiency: 99.21%)
+% User (Computation): 98.44%
+% System (I/O)      :  1.56%
+Mem reserved        : 5G
+Max Mem (Node/step) : 187.70M (gelifes4, per node)
+Full Max Mem usage  : 187.70M
+Total Disk Read     : 24.01M
+Total Disk Write    : 897.56K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

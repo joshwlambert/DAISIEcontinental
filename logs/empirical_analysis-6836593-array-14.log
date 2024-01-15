@@ -1,0 +1,122 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+DLSODES- At current T (=R1), MXSTEP (=I1) steps   
+      taken on this call before reaching TOUT     
+In above message, I1 = 5000
+ 
+In above message, R1 = -31.1072
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 2.3477e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 2.3477e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 2.3477e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 2.3477e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.2266e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.2266e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.2266e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 3.2266e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -88, R2 = 4.4955e-15
+ 
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6836579_14 for user p287218
+Finished at: Sun Jan 14 22:01:22 CET 2024
+
+Job details:
+============
+
+Job ID              : 6836579_14
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes4
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T21:21:52
+Start               : 2024-01-14T21:21:53
+End                 : 2024-01-14T22:01:22
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:39:29
+Used CPU time       :   00:39:07 (efficiency: 99.08%)
+% User (Computation): 98.39%
+% System (I/O)      :  1.61%
+Mem reserved        : 5G
+Max Mem (Node/step) : 190.62M (gelifes4, per node)
+Full Max Mem usage  : 190.62M
+Total Disk Read     : 24.00M
+Total Disk Write    : 893.24K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

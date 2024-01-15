@@ -1,0 +1,46 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6836496_3 for user p287218
+Finished at: Sun Jan 14 21:49:52 CET 2024
+
+Job details:
+============
+
+Job ID              : 6836496_3
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T21:13:22
+Start               : 2024-01-14T21:13:23
+End                 : 2024-01-14T21:49:52
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:36:29
+Used CPU time       :   00:36:12 (efficiency: 99.25%)
+% User (Computation): 98.12%
+% System (I/O)      :  1.88%
+Mem reserved        : 5G
+Max Mem (Node/step) : 188.58M (gelifes6, per node)
+Full Max Mem usage  : 188.58M
+Total Disk Read     : 24.00M
+Total Disk Write    : 890.22K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

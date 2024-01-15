@@ -1,0 +1,70 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -68.9753, R2 = 7.04478e-15
+ 
+DLSODES- Warning..Internal T (=R1) and H (=R2) are
+      such that in the machine, T + H = T on the next step  
+     (H = step size). Solver will continue anyway.
+In above message, R1 = -68.9753, R2 = 7.04478e-15
+ 
+DLSODES- At current T (=R1), MXSTEP (=I1) steps   
+      taken on this call before reaching TOUT     
+In above message, I1 = 5000
+ 
+In above message, R1 = -13.7984
+ 
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6835266_8 for user p287218
+Finished at: Mon Jan 15 00:21:53 CET 2024
+
+Job details:
+============
+
+Job ID              : 6835266_8
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T19:43:52
+Start               : 2024-01-14T19:43:53
+End                 : 2024-01-15T00:21:53
+Reserved walltime   : 1-23:00:00
+Used walltime       :   04:38:00
+Used CPU time       :   04:36:22 (efficiency: 99.41%)
+% User (Computation): 99.37%
+% System (I/O)      :  0.63%
+Mem reserved        : 5G
+Max Mem (Node/step) : 257.87M (gelifes6, per node)
+Full Max Mem usage  : 257.87M
+Total Disk Read     : 24.04M
+Total Disk Write    : 890.99K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

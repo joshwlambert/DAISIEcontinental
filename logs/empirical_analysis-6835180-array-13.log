@@ -1,0 +1,54 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6835167_13 for user p287218
+Finished at: Sun Jan 14 19:43:33 CET 2024
+
+Job details:
+============
+
+Job ID              : 6835167_13
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T19:22:29
+Start               : 2024-01-14T19:22:30
+End                 : 2024-01-14T19:43:33
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:21:03
+Used CPU time       :   00:20:54 (efficiency: 99.29%)
+% User (Computation): 97.72%
+% System (I/O)      :  2.28%
+Mem reserved        : 5G
+Max Mem (Node/step) : 223.18M (gelifes6, per node)
+Full Max Mem usage  : 223.18M
+Total Disk Read     : 24.05M
+Total Disk Write    : 891.02K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

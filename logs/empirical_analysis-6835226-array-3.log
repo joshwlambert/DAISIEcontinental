@@ -1,0 +1,64 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+Warning message:
+renv took longer than expected (11 seconds) to activate the sandbox.
+
+The sandbox can be disabled by setting:
+
+    RENV_CONFIG_SANDBOX_ENABLED = FALSE
+
+within an appropriate start-up .Renviron file.
+
+See `?renv::config` for more details. 
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+Warning message:
+In DAISIE_ML1(datalist = datalist, initparsopt = initparsopt, idparsopt = idparsopt,  :
+  The number of missing species is quite low relative to the
+        resolution of the ODE.
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6835223_3 for user p287218
+Finished at: Sun Jan 14 20:22:28 CET 2024
+
+Job details:
+============
+
+Job ID              : 6835223_3
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T19:36:49
+Start               : 2024-01-14T19:36:50
+End                 : 2024-01-14T20:22:27
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:45:37
+Used CPU time       :   00:45:11 (efficiency: 99.07%)
+% User (Computation): 97.54%
+% System (I/O)      :  2.46%
+Mem reserved        : 5G
+Max Mem (Node/step) : 203.89M (gelifes6, per node)
+Full Max Mem usage  : 203.89M
+Total Disk Read     : 24.04M
+Total Disk Write    : 890.66K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

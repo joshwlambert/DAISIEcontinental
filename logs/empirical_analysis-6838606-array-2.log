@@ -1,0 +1,56 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+- The project is out-of-sync -- use `renv::status()` for details.
+Warning message:
+renv took longer than expected (10 seconds) to activate the sandbox.
+
+The sandbox can be disabled by setting:
+
+    RENV_CONFIG_SANDBOX_ENABLED = FALSE
+
+within an appropriate start-up .Renviron file.
+
+See `?renv::config` for more details. 
+Finished
+
+###############################################################################
+Hábrók Cluster
+Job 6838604_2 for user p287218
+Finished at: Sun Jan 14 22:59:56 CET 2024
+
+Job details:
+============
+
+Job ID              : 6838604_2
+Name                : empirical_analysis
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes2
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2024-01-14T22:29:16
+Start               : 2024-01-14T22:29:17
+End                 : 2024-01-14T22:59:56
+Reserved walltime   : 1-23:00:00
+Used walltime       :   00:30:39
+Used CPU time       :   00:30:16 (efficiency: 98.78%)
+% User (Computation): 99.65%
+% System (I/O)      :  0.35%
+Mem reserved        : 5G
+Max Mem (Node/step) : 316.47M (gelifes2, per node)
+Full Max Mem usage  : 316.47M
+Total Disk Read     : 23.99M
+Total Disk Write    : 891.09K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
