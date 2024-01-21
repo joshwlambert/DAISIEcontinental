@@ -53,8 +53,8 @@ for (i in seq_along(daisie_continental_data)) {
         parsfix = NULL,
         idparsfix = NULL,
         ddmodel = 11,
-        methode = "odeint::runge_kutta_fehlberg78",
-        optimmethod = "simplex",
+        methode = "lsodes",
+        optimmethod = "subplex",
         jitter = 1e-5
       )
     } else {
@@ -69,8 +69,8 @@ for (i in seq_along(daisie_continental_data)) {
         parsfix = 0.5,
         idparsfix = 5,
         ddmodel = 11,
-        methode = "odeint::runge_kutta_fehlberg78",
-        optimmethod = "simplex",
+        methode = "lsodes",
+        optimmethod = "subplex",
         jitter = 1e-5
       )
     }
