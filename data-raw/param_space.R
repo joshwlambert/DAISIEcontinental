@@ -6,7 +6,7 @@ continental_test_param_space <- expand.grid(
   total_time = list(c(5, 10, 50)),
   m = c(250),
   island_clado = c(0.5),
-  island_ex = c(0.25, 0.5),
+  island_ex = c(0, 0.25, 0.5),
   island_k = c(10, 50),
   island_immig = c(0.01),
   island_ana = c(0.5),
