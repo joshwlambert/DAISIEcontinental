@@ -20,32 +20,32 @@ plot_loglik_dist <- function(data_folder_path,
     results_list <- lapply(file_paths, readRDS)
   }
 
+  taxonomic_group <- vapply(
+    results_list, "[[", FUN.VALUE = character(1), "taxonomic_group"
+  )
+
+  ml <- lapply(results_list, "[[", "ml")
+
+  taxonomic_group <- rep(taxonomic_group, times = lengths(ml))
+
   loglik <- unlist(lapply(
-    results_list,
+    ml,
     function(x) {
       vapply(x, "[[", FUN.VALUE = numeric(1), "loglik")
     }
   ))
 
   prob_init_pres <- unlist(lapply(
-    results_list,
+    ml,
     function(x) {
-      vapply(results_list[[1]], "[[", FUN.VALUE = numeric(1), "prob_init_pres")
+      vapply(x, "[[", FUN.VALUE = numeric(1), "prob_init_pres")
     }
   ))
-
-  # temp line until results are in
-  # for (i in seq_len(nrow(param_space))) prob_init_pres[[i]] <- rep(param_space$prob_init_pres[i], 20)
-
-  # temp code until results are in
-  taxonomic_group <- rep(c(
-    "amphibian", "bird", "nonvolant_mammal", "squamate", "volant_mammal"
-  ), each = 20, times = 9)
 
   plotting_data <- data.frame(
     prob_init_pres = prob_init_pres,
     loglik = loglik,
-    taxonomic_group
+    taxonomic_group = taxonomic_group
   )
 
   loglik_dist <- ggplot2::ggplot(data = plotting_data) +
@@ -58,6 +58,7 @@ plot_loglik_dist <- function(data_folder_path,
     ) +
     ggplot2::facet_wrap(
       facets = ggplot2::vars(taxonomic_group),
+      scales = "free",
       labeller = ggplot2::as_labeller(c(
         "amphibian" = "Amphibians",
         "bird" = "Birds",
@@ -87,8 +88,8 @@ plot_loglik_dist <- function(data_folder_path,
       plot = loglik_dist,
       filename = output_file_path,
       device = "png",
-      width = 180,
-      height = 180,
+      width = 250,
+      height = 150,
       units = "mm",
       dpi = 600
     )
