@@ -10,7 +10,7 @@ args <- as.numeric(args)
 taxonomic_group <- c(
   "amphibian", "bird", "nonvolant_mammal", "squamate", "volant_mammal"
 )
-prob_init_pres <- seq(0.1, 0.9, 0.1)
+prob_init_pres <- seq(0, 0.9, 0.1)
 
 param_space <- expand.grid(
   taxonomic_group = taxonomic_group,
