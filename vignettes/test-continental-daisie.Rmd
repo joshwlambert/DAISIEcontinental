@@ -66,16 +66,16 @@ does not accept arguments to name the output log files.
 
 Therefore, what works is to manually submit each parameter set manually by
 specifying the parameter set index with an argument to the bash script. There
-are 12 parameter sets so the entire parameter space can be run by running the 
+are 18 parameter sets so the entire parameter space can be run by running the 
 following commands (still with `DAISIEcontinental` as the working directory):
 
 * `sbatch bash/run_analysis.sh 1`
 * `sbatch bash/run_analysis.sh 2`
 * `sbatch bash/run_analysis.sh 3`
 * ...
-* `sbatch bash/run_analysis.sh 10`
-* `sbatch bash/run_analysis.sh 11`
-* `sbatch bash/run_analysis.sh 12`
+* `sbatch bash/run_analysis.sh 16`
+* `sbatch bash/run_analysis.sh 17`
+* `sbatch bash/run_analysis.sh 18`
 
 This results in each log and results file having a unique file name and each
 job writing to a single file.
