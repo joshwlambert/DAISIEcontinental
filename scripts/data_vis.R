@@ -1,4 +1,4 @@
-for (i in seq_len(12)) {
+for (i in seq_len(18)) {
   DAISIEcontinental::plot_param_diffs(
     param_set = i,
     data_folder_path = file.path("inst", "post_processed_daisie_results"),
