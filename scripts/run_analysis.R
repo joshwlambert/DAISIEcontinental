@@ -31,9 +31,6 @@ daisie_continental_data <- DAISIEcontinental::sim_continental_island(
 
 ml <- vector("list", length(param_space$total_time[[param_set_idx]]))
 
-message("Number of likelihood integration steps permitted:")
-DAISIE::DAISIE_CS_max_steps(1e8)
-
 for (i in seq_along(daisie_continental_data)) {
   ml_failure <- TRUE
   while (ml_failure) {
