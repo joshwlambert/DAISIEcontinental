@@ -66,23 +66,23 @@ does not accept arguments to name the output log files.
 
 Therefore, what works is to manually submit each parameter set manually by
 specifying the parameter set index with an argument to the bash script. There
-are 12 parameter sets so the entire parameter space can be run by running the 
+are 18 parameter sets so the entire parameter space can be run by running the 
 following commands (still with `DAISIEcontinental` as the working directory):
 
 * `sbatch bash/run_analysis.sh 1`
 * `sbatch bash/run_analysis.sh 2`
 * `sbatch bash/run_analysis.sh 3`
 * ...
-* `sbatch bash/run_analysis.sh 10`
-* `sbatch bash/run_analysis.sh 11`
-* `sbatch bash/run_analysis.sh 12`
+* `sbatch bash/run_analysis.sh 16`
+* `sbatch bash/run_analysis.sh 17`
+* `sbatch bash/run_analysis.sh 18`
 
 This results in each log and results file having a unique file name and each
 job writing to a single file.
 
 The reasoning for having the the jobs so distributed, i.e. each job only runs
 a single replicate for three different island ages, is because running more
-simulations and model fitting sequantially does not scale well for the number
+simulations and model fitting sequentially does not scale well for the number
 of replicates. To ensure an adequate sample size of results the model should be
 run for each island age and each parameter set several hundred times, to account
 for model stochasticity. Simulations that have a large community size (number of
@@ -100,4 +100,16 @@ results can then be pushed to the repository.
 ## Processing DAISIE results
 
 Before plotting the results, they need to be collated and formatted. This is
-done by using the `post_process_daisie_results()` function.
+done by using the `post_process_daisie_results()` function. The 
+`post_process_daisie_results.R` script in `scripts/` can be run either by
+opening R and running the code (either copying and pasting into the console or
+calling with `source()`), or can be run from the terminal with 
+`Rscript scripts/post_process_daisie_results.R` (note in both cases the 
+DAISIEcontinental package will need to be load to use the function). This 
+function will automatically save the post-processed files in 
+`inst/post_processed_daisie_results/`.
+
+The pre-processed results from the cluster jobs can be deleted as there are a 
+large number of files and there is no need to have them tracked by version 
+control. Therefore, the `inst/pre_processed_daisie_results` directory can be
+deleted with `rm -r inst/pre_processed_daisie_results`.

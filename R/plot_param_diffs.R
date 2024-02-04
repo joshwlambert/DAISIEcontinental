@@ -61,7 +61,7 @@ plot_param_diffs <- function(param_set,
     unlist(lapply(ancient_ml, "[[", "prob_init_pres"))
   )
 
-
+  # param diffs no longer used in the plot
   param_diffs_list <- lapply(results_list$param_diffs, unlist)
 
   sim_params <- results_list$sim_params
@@ -77,12 +77,7 @@ plot_param_diffs <- function(param_set,
     ext = ext,
     immig = immig,
     ana = ana,
-    prob_init_pres = prob_init_pres,
-    clado_diffs = param_diffs_list$clado_diffs,
-    ext_diffs = param_diffs_list$ext_diffs,
-    immig_diffs = param_diffs_list$immig_diffs,
-    ana_diffs = param_diffs_list$ana_diffs,
-    prob_init_pres_diffs = param_diffs_list$prob_init_pres_diffs
+    prob_init_pres = prob_init_pres
   )
 
   # Fix build warnings
@@ -92,11 +87,6 @@ plot_param_diffs <- function(param_set,
   immig <- NULL; rm(immig)
   ana <- NULL; rm(ana)
   prob_init_pres <- NULL; rm(prob_init_pres)
-  clado_diffs <- NULL; rm(clado_diffs)
-  ext_diffs <- NULL; rm(ext_diffs)
-  immig_diffs <- NULL; rm(immig_diffs)
-  ana_diffs <- NULL; rm(ana_diffs)
-  prob_init_pres_diffs <- NULL; rm(prob_init_pres_diffs)
 
   if (is.null(transform)) {
     breaks <- scales::extended_breaks()
@@ -117,9 +107,11 @@ plot_param_diffs <- function(param_set,
   y_guide <- ggplot2::guide_axis(angle = 0)
 
   clado_density <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_density(
+    ggplot2::geom_histogram(
       mapping = ggplot2::aes(x = clado, fill = group, colour = group),
-      alpha = 0.3
+      alpha = 0.3,
+      position = "identity",
+      bins = 10
     ) +
     ggplot2::scale_fill_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
@@ -131,7 +123,7 @@ plot_param_diffs <- function(param_set,
     ) +
     ggplot2::ylab("Density") +
     ggplot2::xlab(expression(lambda^c)) +
-    ggplot2::geom_vline(xintercept = sim_clado, colour = "grey50") +
+    ggplot2::geom_vline(xintercept = sim_clado, colour = "grey10") +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
@@ -140,9 +132,11 @@ plot_param_diffs <- function(param_set,
     )
 
   ext_density <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_density(
+    ggplot2::geom_histogram(
       mapping = ggplot2::aes(x = ext, fill = group, colour = group),
-      alpha = 0.3
+      alpha = 0.3,
+      position = "identity",
+      bins = 10
     ) +
     ggplot2::scale_fill_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
@@ -154,7 +148,7 @@ plot_param_diffs <- function(param_set,
     ) +
     ggplot2::ylab("Density") +
     ggplot2::xlab(expression(mu)) +
-    ggplot2::geom_vline(xintercept = sim_ext, colour = "grey50") +
+    ggplot2::geom_vline(xintercept = sim_ext, colour = "grey10") +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
@@ -163,9 +157,11 @@ plot_param_diffs <- function(param_set,
     )
 
   immig_density <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_density(
+    ggplot2::geom_histogram(
       mapping = ggplot2::aes(x = immig, fill = group, colour = group),
-      alpha = 0.3
+      alpha = 0.3,
+      position = "identity",
+      bins = 10
     ) +
     ggplot2::scale_fill_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
@@ -177,7 +173,7 @@ plot_param_diffs <- function(param_set,
     ) +
     ggplot2::ylab("Density") +
     ggplot2::xlab(expression(gamma)) +
-    ggplot2::geom_vline(xintercept = sim_immig, colour = "grey50") +
+    ggplot2::geom_vline(xintercept = sim_immig, colour = "grey10") +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
@@ -186,9 +182,11 @@ plot_param_diffs <- function(param_set,
     )
 
   ana_density <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_density(
+    ggplot2::geom_histogram(
       mapping = ggplot2::aes(x = ana, fill = group, colour = group),
-      alpha = 0.3
+      alpha = 0.3,
+      position = "identity",
+      bins = 10
     ) +
     ggplot2::scale_fill_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
@@ -200,7 +198,7 @@ plot_param_diffs <- function(param_set,
     ) +
     ggplot2::ylab("Density") +
     ggplot2::xlab(expression(lambda^a)) +
-    ggplot2::geom_vline(xintercept = sim_ana, colour = "grey50") +
+    ggplot2::geom_vline(xintercept = sim_ana, colour = "grey10") +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
@@ -209,9 +207,11 @@ plot_param_diffs <- function(param_set,
     )
 
   p_density <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_density(
+    ggplot2::geom_histogram(
       mapping = ggplot2::aes(x = prob_init_pres, fill = group, colour = group),
-      alpha = 0.3
+      alpha = 0.3,
+      position = "identity",
+      bins = 10
     ) +
     ggplot2::scale_fill_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
@@ -223,7 +223,10 @@ plot_param_diffs <- function(param_set,
     ) +
     ggplot2::ylab("Density") +
     ggplot2::xlab(expression(italic(p))) +
-    ggplot2::geom_vline(xintercept = sim_prob_init_pres, colour = "grey50") +
+    ggplot2::geom_vline(
+      xintercept = sim_prob_init_pres,
+      colour = "grey10"
+    ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
@@ -640,326 +643,6 @@ plot_param_diffs <- function(param_set,
       guide = x_guide
     )
 
-  clado_vs_ext_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = ext_diffs,
-        y = clado_diffs,
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, lambda^c))) +
-    ggplot2::xlab(expression(paste(Delta, mu))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  clado_vs_immig_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = immig_diffs,
-        y = clado_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, lambda^c))) +
-    ggplot2::xlab(expression(paste(Delta, gamma))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  clado_vs_ana_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = ana_diffs,
-        y = clado_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, lambda^c))) +
-    ggplot2::xlab(expression(paste(Delta, lambda^a))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  clado_vs_p_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = prob_init_pres_diffs,
-        y = clado_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, lambda^c))) +
-    ggplot2::xlab(expression(paste(Delta, italic(p)))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  ext_vs_immig_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = immig_diffs,
-        y = ext_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, mu))) +
-    ggplot2::xlab(expression(paste(Delta, gamma))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  ext_vs_ana_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = ana_diffs,
-        y = ext_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, mu))) +
-    ggplot2::xlab(expression(paste(Delta, lambda^a))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  ext_vs_p_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = prob_init_pres_diffs,
-        y = ext_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, mu))) +
-    ggplot2::xlab(expression(paste(Delta, italic(p)))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  immig_vs_ana_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = ana_diffs,
-        y = immig_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, gamma))) +
-    ggplot2::xlab(expression(paste(Delta, lambda^a))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  immig_vs_p_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = prob_init_pres_diffs,
-        y = immig_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, gamma))) +
-    ggplot2::xlab(expression(paste(Delta, lambda^a))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
-  ana_vs_p_diffs <- ggplot2::ggplot(data = plotting_data) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = prob_init_pres_diffs,
-        y = ana_diffs
-      ),
-      colour = "#56B4E9",
-      shape = 16,
-      alpha = 0.5
-    ) +
-    ggplot2::theme_classic() +
-    ggplot2::theme(
-      title = ggplot2::element_text(size = 10),
-      text = ggplot2::element_text(size = 7)
-    ) +
-    ggplot2::ylab(expression(paste(Delta, lambda^a))) +
-    ggplot2::xlab(expression(paste(Delta, italic(p)))) +
-    ggplot2::geom_vline(xintercept = 0, colour = "grey50") +
-    ggplot2::geom_hline(yintercept = 0, colour = "grey50") +
-    ggplot2::scale_y_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = y_guide
-    ) +
-    ggplot2::scale_x_continuous(
-      breaks = breaks,
-      labels = labels,
-      trans = trans,
-      guide = x_guide
-    )
-
   legend <- cowplot::get_legend(
     ext_vs_clado +
       ggplot2::guides(color = ggplot2::guide_legend(nrow = 1)) +
@@ -967,13 +650,10 @@ plot_param_diffs <- function(param_set,
   )
 
   param_estimates <- cowplot::plot_grid(
-    clado_density, clado_vs_ext_diffs,
-    clado_vs_immig_diffs, clado_vs_ana_diffs, clado_vs_p_diffs,
-    ext_vs_clado, ext_density,
-    ext_vs_immig_diffs, ext_vs_ana_diffs, ext_vs_p_diffs,
-    immig_vs_clado, immig_vs_ext,
-    immig_density, immig_vs_ana_diffs, immig_vs_p_diffs,
-    ana_vs_clado, ana_vs_ext, ana_vs_immig, ana_density, ana_vs_p_diffs,
+    clado_density, NULL, NULL, NULL, NULL,
+    ext_vs_clado, ext_density, NULL, NULL, NULL,
+    immig_vs_clado, immig_vs_ext, immig_density, NULL, NULL,
+    ana_vs_clado, ana_vs_ext, ana_vs_immig, ana_density, NULL,
     p_vs_clado, p_vs_ext, p_vs_immig, p_vs_ana, p_density,
     align = "hv", nrow = 5, ncol = 5
   )

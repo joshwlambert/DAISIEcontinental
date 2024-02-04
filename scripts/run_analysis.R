@@ -31,9 +31,6 @@ daisie_continental_data <- DAISIEcontinental::sim_continental_island(
 
 ml <- vector("list", length(param_space$total_time[[param_set_idx]]))
 
-message("Number of likelihood integration steps permitted:")
-DAISIE::DAISIE_CS_max_steps(1e8)
-
 for (i in seq_along(daisie_continental_data)) {
   ml_failure <- TRUE
   while (ml_failure) {
@@ -53,8 +50,8 @@ for (i in seq_along(daisie_continental_data)) {
         parsfix = NULL,
         idparsfix = NULL,
         ddmodel = 11,
-        methode = "odeint::runge_kutta_fehlberg78",
-        optimmethod = "simplex",
+        methode = "lsodes",
+        optimmethod = "subplex",
         jitter = 1e-5
       )
     } else {
@@ -69,8 +66,8 @@ for (i in seq_along(daisie_continental_data)) {
         parsfix = 0.5,
         idparsfix = 5,
         ddmodel = 11,
-        methode = "odeint::runge_kutta_fehlberg78",
-        optimmethod = "simplex",
+        methode = "lsodes",
+        optimmethod = "subplex",
         jitter = 1e-5
       )
     }
@@ -121,7 +118,7 @@ output <- list(
 
 output_name <- paste0("param_set_", param_set_idx, "_", replicate, ".rds")
 
-output_folder <- file.path("results")
+output_folder <- file.path("inst", "pre_processed_daisie_results")
 
 output_file_path <- file.path(output_folder, output_name)
 
