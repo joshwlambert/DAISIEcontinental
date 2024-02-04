@@ -23,13 +23,13 @@ param_space <- expand.grid(
 
 param_set <- param_space[param_set_idx, ]
 
-datalist <- get(switch(param_set$taxonomic_group,
-                       amphibian = load(system.file("madagascar_data", "amp_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
-                       bird = load(system.file("madagascar_data", "bird_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
-                       nonvolant_mammal = load(system.file("madagascar_data", "nvm_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
-                       squamate = load(system.file("madagascar_data", "squa_ddl_dna_ds_asr.rda", package = "DAISIEcontinental")),
-                       volant_mammal = load(system.file("madagascar_data", "vm_ddl_dna_ds_asr.rda", package = "DAISIEcontinental"))
-))
+datalist <- switch(param_set$taxonomic_group,
+  amphibian = readRDS(system.file("madagascar_data", "amp_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
+  bird = readRDS(system.file("madagascar_data", "bird_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
+  nonvolant_mammal = readRDS(system.file("madagascar_data", "nvm_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
+  squamate = readRDS(system.file("madagascar_data", "squa_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
+  volant_mammal = readRDS(system.file("madagascar_data", "vm_ddl_dna_ds_asr.rds", package = "DAISIEcontinental"))
+)
 
 datalist <- datalist[[replicate]]
 
