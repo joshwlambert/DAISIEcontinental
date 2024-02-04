@@ -5,13 +5,7 @@
 \title{Plots a grid of violin plots of the distribution of loglik values from the
 DAISIE inference model across values of probability of initial presence}
 \usage{
-plot_loglik_dist(
-  data_folder_path,
-  output_file_path,
-  signif,
-  scientific = FALSE,
-  transform = NULL
-)
+plot_loglik_dist(data_folder_path, output_file_path, parameter)
 }
 \arguments{
 \item{data_folder_path}{String specifying the directory the data is read
@@ -20,14 +14,8 @@ from}
 \item{output_file_path}{String specifying the directory the file is saved
 in, if NULL the file is returned to console and not saved}
 
-\item{signif}{A numeric specifying how many significant figures the axes
-labels have when plotting}
-
-\item{scientific}{A boolean determining whether the axis labels will be
-converted to scientific notation}
-
-\item{transform}{Either `NULL` or `"ihs"` to specify no transformation of
-the data or an inverse hyperbolic sine (ihs) transformation}
+\item{parameter}{A character string of either `"lambda_c"`, `"mu"`, `"K"`,
+`"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot}
 }
 \value{
 Void (saves plot)

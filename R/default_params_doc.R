@@ -38,6 +38,8 @@
 #' @param sim_max_age Logical, whether to augment the simulated DAISIE data to
 #' convert vicariant species to max age (stacs)
 #' @param daisie_data_list A single DAISIE data list (i.e. single replicate).
+#' @param parameter A character string of either `"lambda_c"`, `"mu"`, `"K"`,
+#' `"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot
 #'
 #' @return Nothing
 #' @author Joshua W. Lambert

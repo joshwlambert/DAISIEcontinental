@@ -7,9 +7,12 @@
 #' @export
 plot_loglik_dist <- function(data_folder_path,
                              output_file_path,
-                             signif,
-                             scientific = FALSE,
-                             transform = NULL) {
+                             parameter) {
+
+  parameter <- match.arg(
+    parameter,
+    choices = c("lambda_c", "mu", "K", "gamma", "lambda_a", "loglik")
+  )
 
   files <- list.files(data_folder_path, pattern = "empirical_")
 
@@ -28,10 +31,10 @@ plot_loglik_dist <- function(data_folder_path,
 
   taxonomic_group <- rep(taxonomic_group, times = lengths(ml))
 
-  loglik <- unlist(lapply(
+  param <- unlist(lapply(
     ml,
     function(x) {
-      vapply(x, "[[", FUN.VALUE = numeric(1), "loglik")
+      vapply(x, "[[", FUN.VALUE = numeric(1), parameter)
     }
   ))
 
@@ -44,15 +47,25 @@ plot_loglik_dist <- function(data_folder_path,
 
   plotting_data <- data.frame(
     prob_init_pres = prob_init_pres,
-    loglik = loglik,
+    param = param,
     taxonomic_group = taxonomic_group
   )
 
-  loglik_dist <- ggplot2::ggplot(data = plotting_data) +
+  y_axis_lab <- switch(
+    parameter,
+    lambda_c = expression(Cladogenesis ~ rate ~ lambda^c),
+    mu = expression(Extinction ~ rate ~ mu),
+    K = "Carrying Capacity K'",
+    gamma = expression(Colonisation ~ rate ~ gamma),
+    lambda_a = expression(Anagenesis ~ rate ~ lambda^a),
+    loglik = expression(DAISIE ~ log ~ likelihood ~ hat(L))
+  )
+
+  param_dist <- ggplot2::ggplot(data = plotting_data) +
     ggplot2::geom_violin(
       mapping = ggplot2::aes(
         x = as.factor(prob_init_pres),
-        y = loglik,
+        y = param,
         fill = taxonomic_group
       )
     ) +
@@ -66,7 +79,7 @@ plot_loglik_dist <- function(data_folder_path,
         "squamate" = "Squamates",
         "volant_mammal" = "V Mammals"
       ))) +
-    ggplot2::scale_y_continuous(name = expression(DAISIE ~ log ~ likelihood ~ hat(L))) +
+    ggplot2::scale_y_continuous(name = y_axis_lab) +
     ggplot2::scale_x_discrete(name = "Probability of initial presence (p)") +
     ggplot2::scale_fill_manual(
       name = "Taxonomic group",
@@ -85,7 +98,7 @@ plot_loglik_dist <- function(data_folder_path,
 
   if (!is.null(output_file_path)) {
     ggplot2::ggsave(
-      plot = loglik_dist,
+      plot = param_dist,
       filename = output_file_path,
       device = "png",
       width = 250,
@@ -94,6 +107,6 @@ plot_loglik_dist <- function(data_folder_path,
       dpi = 600
     )
   } else {
-    return(loglik_dist)
+    return(param_dist)
   }
 }

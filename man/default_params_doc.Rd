@@ -79,6 +79,9 @@ during the simulation}
 convert vicariant species to max age (stacs)}
 
 \item{daisie_data_list}{A single DAISIE data list (i.e. single replicate).}
+
+\item{parameter}{A character string of either `"lambda_c"`, `"mu"`, `"K"`,
+`"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot}
 }
 \value{
 Nothing
