@@ -13,4 +13,4 @@ mkdir -p inst/pre_processed_empirical_results
 ml R
 Rscript -e "install.packages(c('renv', 'devtools'))"
 Rscript -e "renv::restore(prompt = FALSE)"
-Rscript -e "remotes::install_github('joshwlambert/DAISIEcontinental@emp_analysis3')"
+Rscript -e "remotes::install_github('joshwlambert/DAISIEcontinental')"
