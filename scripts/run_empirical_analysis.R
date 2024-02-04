@@ -132,10 +132,11 @@ output <- list(
 
 output_name <- paste0("empirical_param_set_", param_set_idx, "_", replicate, ".rds")
 
-output_folder <- file.path("results")
+output_folder <- file.path("inst", "pre_processed_empirical_daisie_results")
 
 output_file_path <- file.path(output_folder, output_name)
 
 saveRDS(object = output, file = output_file_path)
 
 message("Finished")
+
