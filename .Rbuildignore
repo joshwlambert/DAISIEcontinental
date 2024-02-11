@@ -10,3 +10,6 @@
 ^data-raw$
 ^docs$
 ^plots$
+^CODE_OF_CONDUCT\.md$
+^codecov\.yml$
+^.zenodo.json$
