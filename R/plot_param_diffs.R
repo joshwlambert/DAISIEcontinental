@@ -61,8 +61,10 @@ plot_param_diffs <- function(param_set,
     unlist(lapply(ancient_ml, "[[", "prob_init_pres"))
   )
 
+  # nolint start
   # param diffs no longer used in the plot
-  param_diffs_list <- lapply(results_list$param_diffs, unlist)
+  # param_diffs_list <- lapply(results_list$param_diffs, unlist)
+  # nolint end
 
   sim_params <- results_list$sim_params
   sim_clado <- sim_params$island_clado
@@ -81,12 +83,12 @@ plot_param_diffs <- function(param_set,
   )
 
   # Fix build warnings
-  group <- NULL; rm(group)
+  group <- NULL; rm(group) # nolint start
   clado <- NULL; rm(clado)
   ext <- NULL; rm(ext)
   immig <- NULL; rm(immig)
   ana <- NULL; rm(ana)
-  prob_init_pres <- NULL; rm(prob_init_pres)
+  prob_init_pres <- NULL; rm(prob_init_pres) # nolint end
 
   if (is.null(transform)) {
     breaks <- scales::extended_breaks()

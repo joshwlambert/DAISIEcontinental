@@ -10,7 +10,7 @@
 #'
 #' @return A list of DAISIE data lists ([DAISIE::DAISIE_sim_cr()]).
 #' @export
-sim_continental_island <- function(total_time,
+sim_continental_island <- function(total_time, # nolint cyclocomp
                                    m,
                                    island_pars,
                                    nonoceanic_pars,
@@ -52,7 +52,8 @@ sim_continental_island <- function(total_time,
           num_clado_events <- length(sim[[k]]$branching_times) - 1
           if (vicariant_species && species_endemism == 4) {
             sim[[k]]$stac <- 1
-          } else if (vicariant_species && species_endemism == 2 && num_clado_events >= 1) {
+          } else if (vicariant_species && species_endemism == 2 &&
+                       num_clado_events >= 1) {
             sim[[k]]$stac <- 6
           } else if (vicariant_species && species_endemism == 2) {
             sim[[k]]$stac <- 5

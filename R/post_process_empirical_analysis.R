@@ -4,12 +4,14 @@
 #'
 #' @return Invisibly returns `"Finsished"` (used for saving file)
 #' @export
-post_process_empirical_analysis <- function(data_folder_path,
+post_process_empirical_analysis <- function(data_folder_path, # nolint function name lintr
                                             output_file_path) {
 
   files <- list.files(data_folder_path)
 
-  rm_prefix <- gsub(pattern = "empirical_param_set_", replacement = "", x = files)
+  rm_prefix <- gsub(
+    pattern = "empirical_param_set_", replacement = "", x = files
+  )
   rm_suffix <- gsub("_.*", "", rm_prefix)
   param_set <- as.numeric(rm_suffix)
 

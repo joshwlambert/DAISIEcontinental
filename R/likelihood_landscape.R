@@ -23,7 +23,9 @@ likelihood_landscape <- function(prob_init_presence_range = c(0, 1),
       plot_sims = FALSE
     )
 
-    message("True probability of initial presence = ", mean(prob_init_presence_range))
+    message(
+      "True probability of initial presence = ", mean(prob_init_presence_range)
+    )
 
     for (i in seq_along(prob_init_presence)) {
 
@@ -31,8 +33,10 @@ likelihood_landscape <- function(prob_init_presence_range = c(0, 1),
 
       loglik <- DAISIE::DAISIE_loglik_CS(
         pars1 = c(1, 1, 50, 0.01, 1, prob_init_presence[i]),
-        pars2 = c(1.0e+02, 1.1e+01, 0.0e+00, 0.0e+00, NA, 0.0e+00, 1.0e-04, 1.0e-05,
-                  1.0e-07, 4.0e+03, 9.5e-01, 9.8e-01),
+        pars2 = c(
+          1.0e+02, 1.1e+01, 0.0e+00, 0.0e+00, NA, 0.0e+00, 1.0e-04, 1.0e-05,
+          1.0e-07, 4.0e+03, 9.5e-01, 9.8e-01
+        ),
         datalist = sim[[1]],
         methode = "lsodes",
         CS_version = 1,
@@ -50,5 +54,6 @@ likelihood_landscape <- function(prob_init_presence_range = c(0, 1),
     prob_init_presence,
     logliks,
     ylab = "Loglikelihood",
-    xlab = "Probability of Initial Presence")
+    xlab = "Probability of Initial Presence"
+  )
 }

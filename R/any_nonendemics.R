@@ -14,6 +14,8 @@
 any_nonendemics <- function(daisie_data_list) {
   ddl <- daisie_data_list
   nonendemic_stacs <- c(1, 3, 4, 7, 8)
-  any_nonendemics <- any(unlist(lapply(ddl, "[[", "stac")) %in% nonendemic_stacs)
+  any_nonendemics <- any(
+    unlist(lapply(ddl, "[[", "stac")) %in% nonendemic_stacs
+  )
   return(any_nonendemics)
 }
