@@ -9,6 +9,8 @@
 
 The goal of DAISIEcontinental is to test the precision and reliability of the continental DAISIE inference model.
 
+![Example figure of parameter precision from the continental DAISIE model](../inst/plots/param_estimates_8.png?raw=true "Parameter estimates")
+
 ## Installation
 
 You can install the development version of DAISIEcontinental from [GitHub](https://github.com/) with:
