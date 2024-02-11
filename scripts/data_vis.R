@@ -11,7 +11,7 @@ for (i in seq_len(18)) {
 
 DAISIEcontinental::plot_loglik_dist(
   data_folder_path = file.path("inst", "post_processed_empirical_results"),
-  output_file_path = file.path("inst", "plots", "empirical_clado_dist.png"),
+  output_file_path = file.path("inst", "plots", "empirical_loglik_dist.png"),
   parameter = "loglik"
 )
 
