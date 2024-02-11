@@ -22,23 +22,14 @@ The {DAISIE} R package contains maximum likelihood models to infer island biogeo
 
 The {DAISIEcontinental} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
 
-The package has two principal functions:
+The package has two principal analysis:
 
-* `continental_test_sim()`
-* `continental_test_data()` 
+* continental inference model estimation performance with simulated data
+* profile likelihood of empirical data at fixed values of `p`
 
-These perform the same task, quantifying the estimation of the probability of initial presence on the island. The `continental_test_data()` function is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `continental_test_sim()` function is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario.
+The `run_empirical_analysis` (bash and R script) can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. The `run_empirical_analysis` script is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `run_analysis` (bash and R script) is to determine the precision of the model with a known value of `p`. The `run_analysis` script is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario.
 
-For `continental_test_date()` can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. `continental_test_sim()` is to determine the precision of the model with a known value of `p`.
-
-This vignette will walk through the application of both of these functions and show how they can be used to analyse the continental DAISIE model.
-
-<body of vignette>
-
-Both `con
-
-
-## New
+This vignette will walk through the application of both of these analyses and show how they can be used to analyse the continental DAISIE model. The package leverages the High Performance Cluster Computer (HPCC) from the University of Groningen to run the analyses in a distributed manner to parallelise computationally demanding analyses.
 
 ## Reproducing parameter estimation analysis
 
@@ -97,7 +88,7 @@ created by running `mkdir inst/pre_processed_daisie_results`. The results can
 be copied by running `cp -r results/ inst/pre_processed_daisie_results`. These
 results can then be pushed to the repository.
 
-## Processing DAISIE results
+### Processing DAISIE results
 
 Before plotting the results, they need to be collated and formatted. This is
 done by using the `post_process_daisie_results()` function. The 
@@ -113,3 +104,44 @@ The pre-processed results from the cluster jobs can be deleted as there are a
 large number of files and there is no need to have them tracked by version 
 control. Therefore, the `inst/pre_processed_daisie_results` directory can be
 deleted with `rm -r inst/pre_processed_daisie_results`.
+
+## Reproducing profile likelihood empirical analysis
+
+The empirical analysis uses the same startup steps as the parameter estimation
+analysis. If these steps have already been done for the above analysis they do
+not need to be repeated.
+
+* Clone the repository
+* Change the working directory into `/DAISIEcontinental`
+* Install the repository by running `sbatch bash/install_DAISIEcontinental.sh`
+
+The empirical analysis uses the same job setup and submission as the parameter
+estimation analysis. The entire empirical analysis also cannot be submitted 
+with a single command, and instead each parameter set is submitted individually, 
+specifying the param set index as an argument. There are 50 parameter sets,
+which includes each taxonomic group and each fixed probability of initial 
+presence of species on the continental island.
+
+* `sbatch bash/run_empirical_analysis.sh 1`
+* `sbatch bash/run_empirical_analysis.sh 2`
+* `sbatch bash/run_empirical_analysis.sh 3`
+* ...
+* `sbatch bash/run_empirical_analysis.sh 48`
+* `sbatch bash/run_empirical_analysis.sh 49`
+* `sbatch bash/run_empirical_analysis.sh 50`
+
+### Processing empirical results
+
+The empirical results are also post-processed to collate the results into each
+parameter set. The second function in the `scripts/post_process_daisie_results`
+
+```r
+post_process_empirical_analysis(
+  data_folder_path = file.path("inst", "pre_processed_empirical_results"),
+  output_file_path = file.path("inst", "post_processed_empirical_results")
+)
+```
+
+will create the post-processed results and put them in the
+`inst/post_processed_empirical_results` directory. From there they can be
+commited to version control, and used to make plots.
