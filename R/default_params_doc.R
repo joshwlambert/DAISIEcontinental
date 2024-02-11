@@ -59,6 +59,7 @@ default_params_doc <- function(signif,
                                seed,
                                verbose,
                                sim_max_age,
-                               daisie_data_list) {
+                               daisie_data_list,
+                               parameter) {
   # Nothing
 }

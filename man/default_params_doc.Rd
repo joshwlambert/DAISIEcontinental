@@ -21,7 +21,8 @@ default_params_doc(
   seed,
   verbose,
   sim_max_age,
-  daisie_data_list
+  daisie_data_list,
+  parameter
 )
 }
 \arguments{
