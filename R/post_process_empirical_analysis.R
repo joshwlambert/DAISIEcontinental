@@ -6,7 +6,6 @@
 #' @export
 post_process_empirical_analysis <- function(data_folder_path, # nolint function name lintr
                                             output_file_path) {
-
   files <- list.files(data_folder_path)
 
   rm_prefix <- gsub(

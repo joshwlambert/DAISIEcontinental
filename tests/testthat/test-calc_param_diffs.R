@@ -25,8 +25,10 @@ test_that("calc_param_diffs works as expected", {
   expect_type(param_diffs, "list")
   expect_named(
     param_diffs,
-    c("clado_diffs", "ext_diffs", "k_diffs", "immig_diffs", "ana_diffs",
-      "prob_init_pres_diffs")
+    c(
+      "clado_diffs", "ext_diffs", "k_diffs", "immig_diffs", "ana_diffs",
+      "prob_init_pres_diffs"
+    )
   )
   expect_true(all(sapply(param_diffs, length) == 3))
 })

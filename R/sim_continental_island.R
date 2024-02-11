@@ -48,12 +48,12 @@ sim_continental_island <- function(total_time, # nolint cyclocomp
         for (k in 2:length(sim)) {
           vicariant_species <-
             sim[[k]]$branching_times[1] == sim[[k]]$branching_times[2]
-          species_endemism <-  sim[[k]]$stac
+          species_endemism <- sim[[k]]$stac
           num_clado_events <- length(sim[[k]]$branching_times) - 1
           if (vicariant_species && species_endemism == 4) {
             sim[[k]]$stac <- 1
           } else if (vicariant_species && species_endemism == 2 &&
-                       num_clado_events >= 1) {
+                     num_clado_events >= 1) {
             sim[[k]]$stac <- 6
           } else if (vicariant_species && species_endemism == 2) {
             sim[[k]]$stac <- 5

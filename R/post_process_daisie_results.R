@@ -6,7 +6,6 @@
 #' @export
 post_process_daisie_results <- function(data_folder_path,
                                         output_file_path) {
-
   files <- list.files(data_folder_path)
 
   rm_prefix <- gsub(pattern = "param_set_", replacement = "", x = files)

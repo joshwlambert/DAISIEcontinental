@@ -1,6 +1,5 @@
 likelihood_landscape <- function(prob_init_presence_range = c(0, 1),
                                  prob_init_presence_increment = 0.01) {
-
   prob_init_presence <- seq(
     from = prob_init_presence_range[1],
     to = prob_init_presence_range[2],
@@ -28,7 +27,6 @@ likelihood_landscape <- function(prob_init_presence_range = c(0, 1),
     )
 
     for (i in seq_along(prob_init_presence)) {
-
       message("i = ", i)
 
       loglik <- DAISIE::DAISIE_loglik_CS(

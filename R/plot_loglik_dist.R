@@ -8,7 +8,6 @@
 plot_loglik_dist <- function(data_folder_path,
                              output_file_path,
                              parameter) {
-
   parameter <- match.arg(
     parameter,
     choices = c("lambda_c", "mu", "K", "gamma", "lambda_a", "loglik")
@@ -24,7 +23,8 @@ plot_loglik_dist <- function(data_folder_path,
   }
 
   taxonomic_group <- vapply(
-    results_list, "[[", FUN.VALUE = character(1), "taxonomic_group"
+    results_list, "[[",
+    FUN.VALUE = character(1), "taxonomic_group"
   )
 
   ml <- lapply(results_list, "[[", "ml")
@@ -51,8 +51,7 @@ plot_loglik_dist <- function(data_folder_path,
     taxonomic_group = taxonomic_group
   )
 
-  y_axis_lab <- switch(
-    parameter,
+  y_axis_lab <- switch(parameter,
     lambda_c = expression(Cladogenesis ~ rate ~ lambda^c),
     mu = expression(Extinction ~ rate ~ mu),
     K = "Carrying Capacity K'",
@@ -78,7 +77,8 @@ plot_loglik_dist <- function(data_folder_path,
         "nonvolant_mammal" = "NV Mammals",
         "squamate" = "Squamates",
         "volant_mammal" = "V Mammals"
-      ))) +
+      ))
+    ) +
     ggplot2::scale_y_continuous(name = y_axis_lab) +
     ggplot2::scale_x_discrete(name = "Probability of initial presence (p)") +
     ggplot2::scale_fill_manual(
