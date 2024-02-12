@@ -1,7 +1,7 @@
-data_folder_path <- ifelse(
-  test = is_testing(),
-  yes = file.path("..", "..", "inst", "post_processed_daisie_results"),
-  no = file.path("inst", "post_processed_daisie_results")
+data_folder_path <- system.file(
+  "post_processed_daisie_results",
+  package = "DAISIEcontinental",
+  mustWork = TRUE
 )
 
 test_that("plot_param_diffs (no save) runs silent without error", {
