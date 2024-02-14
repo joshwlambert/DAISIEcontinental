@@ -13,7 +13,7 @@
 
   "description": "<p>A set of functions and scripts to analyse the continental (non-oceanic) DAISIE model of island biogeography. The package contains analysis and plotting scripts to determine the precision, reliability and bias of inferring vicariant species from phylogenetic island community data.</p>",
   "language": "eng",
-  "title": "DAISIEmainland: Test continental DAISIE MLE model",
+  "title": "DAISIEcontinental: Test continental DAISIE MLE model",
 
   "access_right": "open"
 }
