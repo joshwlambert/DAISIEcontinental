@@ -145,3 +145,5 @@ post_process_empirical_analysis(
 will create the post-processed results and put them in the
 `inst/post_processed_empirical_results` directory. From there they can be
 commited to version control, and used to make plots.
+
+Plots can be produced by running the `script/data_vis.R` R script.
