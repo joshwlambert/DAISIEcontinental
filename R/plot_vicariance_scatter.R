@@ -40,7 +40,7 @@ plot_vicariance_scatter <- function(data_folder_path,
       values = c(19, 1)) +
     ggplot2::facet_wrap(
       facets = ggplot2::vars(optimmethod, epss),
-      labeller = ggplot2::label_wrap_gen(multi_line = FALSE)
+      labeller = ggplot2::label_both
     ) +
     ggplot2::theme_classic() +
     ggplot2::theme(
