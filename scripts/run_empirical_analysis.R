@@ -52,7 +52,7 @@ while (ml_failure) {
     idparsfix = NULL,
     ddmodel = 11,
     methode = "lsodes",
-    optimmethod = "subplex",
+    optimmethod = "simplex",
     res = 500
   )
   if (init_params$conv == -1) {
@@ -96,7 +96,7 @@ while (ml_failure) {
     idparsfix = 6,
     ddmodel = 11,
     methode = "lsodes",
-    optimmethod = "subplex",
+    optimmethod = "simplex",
     res = 500
   )
   if (ml$conv == -1) {

@@ -51,7 +51,7 @@ for (i in seq_along(daisie_continental_data)) {
         idparsfix = NULL,
         ddmodel = 11,
         methode = "lsodes",
-        optimmethod = "subplex",
+        optimmethod = "simplex",
         jitter = 1e-5
       )
     } else {
@@ -67,7 +67,7 @@ for (i in seq_along(daisie_continental_data)) {
         idparsfix = 5,
         ddmodel = 11,
         methode = "lsodes",
-        optimmethod = "subplex",
+        optimmethod = "simplex",
         jitter = 1e-5
       )
     }
