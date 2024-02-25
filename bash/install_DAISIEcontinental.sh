@@ -10,6 +10,7 @@
 mkdir -p logs
 mkdir -p inst/pre_processed_daisie_results
 mkdir -p inst/pre_processed_empirical_results
+mkdir -p inst/pre_processed_vicariance_results
 ml R
 Rscript -e "install.packages(c('renv', 'devtools'))"
 Rscript -e "renv::restore(prompt = FALSE)"
