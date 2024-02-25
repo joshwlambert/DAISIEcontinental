@@ -19,7 +19,7 @@ param_space <- expand.grid(
   stringsAsFactors = FALSE
 )
 
-daisie_continental_data <- sim_continental_island(
+daisie_continental_data <- DAISIEcontinental::sim_continental_island(
   total_time = param_space$total_time[[param_set_idx]],
   m = param_space$m[[param_set_idx]],
   island_pars = c(param_space$island_clado[[param_set_idx]],
