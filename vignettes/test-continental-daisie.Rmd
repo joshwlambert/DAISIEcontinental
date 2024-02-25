@@ -22,14 +22,15 @@ The {DAISIE} R package contains maximum likelihood models to infer island biogeo
 
 The {DAISIEcontinental} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
 
-The package has two principal analysis:
+The package has three principal analyses:
 
 * continental inference model estimation performance with simulated data
 * profile likelihood of empirical data at fixed values of `p`
+* estimation accuracy of vicariance under idealised simulations varying model settings 
 
-The `run_empirical_analysis` (bash and R script) can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. The `run_empirical_analysis` script is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `run_analysis` (bash and R script) is to determine the precision of the model with a known value of `p`. The `run_analysis` script is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario.
+The `run_empirical_analysis` (bash and R script) can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. The `run_empirical_analysis` script is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `run_analysis` (bash and R script) is to determine the precision of the model with a known value of `p`. The `run_analysis` script is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario. The `run_vicariance_analysis` (bash and R script) is used to determine how well the maximum likelihood model can estimate the probability of initial presence across different island ages and inference settings when `p = 1` and there is no extinction or colonisation.
 
-This vignette will walk through the application of both of these analyses and show how they can be used to analyse the continental DAISIE model. The package leverages the High Performance Cluster Computer (HPCC) from the University of Groningen to run the analyses in a distributed manner to parallelise computationally demanding analyses.
+This vignette will walk through the application of all of these analyses and show how they can be used to analyse the continental DAISIE model. The package leverages the High Performance Cluster Computer (HPCC) from the University of Groningen to run the analyses in a distributed manner to parallelise computationally demanding analyses.
 
 ## Reproducing parameter estimation analysis
 
@@ -92,10 +93,10 @@ results can then be pushed to the repository.
 
 Before plotting the results, they need to be collated and formatted. This is
 done by using the `post_process_daisie_results()` function. The 
-`post_process_daisie_results.R` script in `scripts/` can be run either by
+`post_process.R` script in `scripts/` can be run either by
 opening R and running the code (either copying and pasting into the console or
 calling with `source()`), or can be run from the terminal with 
-`Rscript scripts/post_process_daisie_results.R` (note in both cases the 
+`Rscript scripts/post_process.R` (note in both cases the 
 DAISIEcontinental package will need to be load to use the function). This 
 function will automatically save the post-processed files in 
 `inst/post_processed_daisie_results/`.
@@ -133,7 +134,7 @@ presence of species on the continental island.
 ### Processing empirical results
 
 The empirical results are also post-processed to collate the results into each
-parameter set. The second function in the `scripts/post_process_daisie_results`
+parameter set. The second function in the `scripts/post_process.R`
 
 ```r
 post_process_empirical_analysis(
@@ -144,6 +145,39 @@ post_process_empirical_analysis(
 
 will create the post-processed results and put them in the
 `inst/post_processed_empirical_results` directory. From there they can be
-commited to version control, and used to make plots.
+committed to version control, and used to make plots.
+
+## Vicariance analysis
+
+The vicariance analysis uses the same startup steps of cloning, installation,
+and using the correct working directory as the parameter estimation
+analysis. If these steps have already been done for the above analysis they do
+not need to be repeated.
+
+The parameter space is created within the `scripts/run_vicariance_analysis.R`
+script, and it has 800 sets. The `bash/run_vicariance_analysis.sh` has a job
+array with 1-800 jobs dispatched. Unlike the other analyses above, this analysis
+can be run by calling a single command: `sbatch bash/run_vicariance_analysis.sh`.
+This runs the 800 jobs, one for each parameter set (controlled by the job array
+index).
+
+### Processing vicariance results
+
+The vicariance results are also post-processed, this time to collate the
+results into a single table with all parameter sets. The third function
+in the `scripts/post_process.R` script
+
+```r
+post_process_vicariance_results(
+  data_folder_path = file.path("inst", "pre_processed_vicariance_results"),
+  output_file_path = file.path("inst", "post_processed_vicariance_results")
+)
+```
+
+will collate and save the post-processed results and put them in the
+`inst/post_processed_vicariance_results` directory. From there they it can be
+committed to version control.
+
+## Data Visualisation
 
 Plots can be produced by running the `script/data_vis.R` R script.
