@@ -22,7 +22,8 @@ default_params_doc(
   verbose,
   sim_max_age,
   daisie_data_list,
-  parameter
+  parameter,
+  epss
 )
 }
 \arguments{
@@ -34,7 +35,7 @@ converted to scientific notation}
 
 \item{breaks}{A vector of numerics}
 
-\item{param_set}{A single row `data.frame` with the parameters used for the
+\item{param_set}{A single row \code{data.frame} with the parameters used for the
 simulation (i.e. one parameter set from the parameter space)}
 
 \item{data_folder_path}{String specifying the directory the data is read
@@ -43,10 +44,10 @@ from}
 \item{output_file_path}{String specifying the directory the file is saved
 in, if NULL the file is returned to console and not saved}
 
-\item{transform}{Either `NULL` or `"ihs"` to specify no transformation of
+\item{transform}{Either \code{NULL} or \code{"ihs"} to specify no transformation of
 the data or an inverse hyperbolic sine (ihs) transformation}
 
-\item{ml}{A list of DAISIE data lists [DAISIE::DAISIE_ML_CS()] to calculate
+\item{ml}{A list of DAISIE data lists \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} to calculate
 the difference in parameter estimates}
 
 \item{total_time}{Numeric defining the length of the simulation in time
@@ -56,13 +57,13 @@ units.}
 
 \item{island_pars}{A numeric vector containing the parameters for the island:
 \itemize{
-  \item{`island_pars[1]`: lambda^c (cladogenesis rate)}
-  \item{`island_pars[2]`: mu (extinction rate)}
-  \item{`island_pars[3]`: K (carrying capacity), set K=Inf for
-  diversity independence.}
-  \item{`island_pars[4]`: gamma (immigration rate)}
-  \item{`island_pars[5]`: lambda^a (anagenesis rate)}
-  }}
+\item{\code{island_pars[1]}: lambda^c (cladogenesis rate)}
+\item{\code{island_pars[2]}: mu (extinction rate)}
+\item{\code{island_pars[3]}: K (carrying capacity), set K=Inf for
+diversity independence.}
+\item{\code{island_pars[4]}: gamma (immigration rate)}
+\item{\code{island_pars[5]}: lambda^a (anagenesis rate)}
+}}
 
 \item{nonoceanic_pars}{A vector of two numerics with the probability of
 initial presence and the probability of a vicariant species being nonendemic
@@ -81,8 +82,15 @@ convert vicariant species to max age (stacs)}
 
 \item{daisie_data_list}{A single DAISIE data list (i.e. single replicate).}
 
-\item{parameter}{A character string of either `"lambda_c"`, `"mu"`, `"K"`,
-`"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot}
+\item{parameter}{A character string of either \code{"lambda_c"}, \code{"mu"}, \code{"K"},
+\code{"gamma"}, \code{"lambda_a"}, \code{"loglik"} to choose the parameter to plot}
+
+\item{epss}{The difference between the island age and the colonisation time
+for maximum age of colonisation of "Non_endemic_MaxAge" and
+"Endemic_MaxAge" species. The default is \code{0} for a max age colonisation at
+the same time as the islands, the DAISIE default is \code{1e-5} for an age that
+is slightly younger than the island for cases when the age provided for
+that species is older than the island.}
 }
 \value{
 Nothing

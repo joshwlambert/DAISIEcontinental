@@ -14,8 +14,8 @@ from}
 \item{output_file_path}{String specifying the directory the file is saved
 in, if NULL the file is returned to console and not saved}
 
-\item{parameter}{A character string of either `"lambda_c"`, `"mu"`, `"K"`,
-`"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot}
+\item{parameter}{A character string of either \code{"lambda_c"}, \code{"mu"}, \code{"K"},
+\code{"gamma"}, \code{"lambda_a"}, \code{"loglik"} to choose the parameter to plot}
 }
 \value{
 Void (saves plot)

@@ -14,7 +14,7 @@ from}
 in, if NULL the file is returned to console and not saved}
 }
 \value{
-Invisibly returns `"Finsished"` (used for saving file)
+Invisibly returns \code{"Finsished"} (used for saving file)
 }
 \description{
 Compiles and saves DAISIE inference model output across the parameter space

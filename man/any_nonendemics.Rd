@@ -20,7 +20,7 @@ lineages
 \details{
 This basic function assumes recolonists have at least one
 non-endemic species, which may not be the case. For the purposes of using
-`any_nonendemics()` in `DAISIEcontinental` this does not matter, but **do
+\code{any_nonendemics()} in \code{DAISIEcontinental} this does not matter, but \strong{do
 not use this function to precisely determine whether DAISIE data contains
-non-endemic species.**
+non-endemic species.}
 }

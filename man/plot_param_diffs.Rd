@@ -17,7 +17,7 @@ plot_param_diffs(
 )
 }
 \arguments{
-\item{param_set}{A single row `data.frame` with the parameters used for the
+\item{param_set}{A single row \code{data.frame} with the parameters used for the
 simulation (i.e. one parameter set from the parameter space)}
 
 \item{data_folder_path}{String specifying the directory the data is read
@@ -32,7 +32,7 @@ labels have when plotting}
 \item{scientific}{A boolean determining whether the axis labels will be
 converted to scientific notation}
 
-\item{transform}{Either `NULL` or `"ihs"` to specify no transformation of
+\item{transform}{Either \code{NULL} or \code{"ihs"} to specify no transformation of
 the data or an inverse hyperbolic sine (ihs) transformation}
 }
 \value{

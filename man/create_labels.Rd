@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_utils.R
 \name{create_labels}
 \alias{create_labels}
-\title{Creates labels for plots by calling `scientific`.}
+\title{Creates labels for plots by calling \code{scientific}.}
 \usage{
 create_labels(signif, scientific)
 }
@@ -17,5 +17,5 @@ converted to scientific notation}
 A function that takes a numeric vector
 }
 \description{
-Creates labels for plots by calling `scientific`.
+Creates labels for plots by calling \code{scientific}.
 }

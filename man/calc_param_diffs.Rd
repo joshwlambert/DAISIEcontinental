@@ -5,15 +5,15 @@
 \title{Calculates the differences in parameter estimates (cladogenesis, extinction,
 carrying capacity, colonisation, and anagenesis) from the DAISIE maximum
 likelihood model fitted to the ideal and empirical data sets simulated from
-[sim_continental_island()]}
+\code{\link[=sim_continental_island]{sim_continental_island()}}}
 \usage{
 calc_param_diffs(ml, param_set)
 }
 \arguments{
-\item{ml}{A list of DAISIE data lists [DAISIE::DAISIE_ML_CS()] to calculate
+\item{ml}{A list of DAISIE data lists \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} to calculate
 the difference in parameter estimates}
 
-\item{param_set}{A single row `data.frame` with the parameters used for the
+\item{param_set}{A single row \code{data.frame} with the parameters used for the
 simulation (i.e. one parameter set from the parameter space)}
 }
 \value{
@@ -23,5 +23,5 @@ A list of five numeric vectors
 Calculates the differences in parameter estimates (cladogenesis, extinction,
 carrying capacity, colonisation, and anagenesis) from the DAISIE maximum
 likelihood model fitted to the ideal and empirical data sets simulated from
-[sim_continental_island()]
+\code{\link[=sim_continental_island]{sim_continental_island()}}
 }
