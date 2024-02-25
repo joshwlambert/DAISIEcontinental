@@ -17,7 +17,8 @@ sim_continental_island <- function(total_time, # nolint cyclocomp
                                    replicate,
                                    seed,
                                    verbose,
-                                   sim_max_age = TRUE) {
+                                   sim_max_age = TRUE,
+                                   epss = 0) {
   sims <- list()
   seed <- replicate * seed
   for (i in seq_along(total_time)) {
@@ -52,13 +53,17 @@ sim_continental_island <- function(total_time, # nolint cyclocomp
           num_clado_events <- length(sim[[k]]$branching_times) - 1
           if (vicariant_species && species_endemism == 4) {
             sim[[k]]$stac <- 1
+            sim[[k]]$branching_times[2] <- sim[[k]]$branching_times[2] - epss
           } else if (vicariant_species && species_endemism == 2 &&
                      num_clado_events >= 1) {
             sim[[k]]$stac <- 6
+            sim[[k]]$branching_times[2] <- sim[[k]]$branching_times[2] - epss
           } else if (vicariant_species && species_endemism == 2) {
             sim[[k]]$stac <- 5
+            sim[[k]]$branching_times[2] <- sim[[k]]$branching_times[2] - epss
           } else if (vicariant_species && species_endemism == 3) {
             sim[[k]]$stac <- 7
+            sim[[k]]$branching_times[2] <- sim[[k]]$branching_times[2] - epss
           }
         }
         sims[[1]][[j]] <- sim

@@ -12,7 +12,8 @@ sim_continental_island(
   replicate,
   seed,
   verbose,
-  sim_max_age = TRUE
+  sim_max_age = TRUE,
+  epss = 0
 )
 }
 \arguments{
@@ -23,13 +24,13 @@ units.}
 
 \item{island_pars}{A numeric vector containing the parameters for the island:
 \itemize{
-  \item{`island_pars[1]`: lambda^c (cladogenesis rate)}
-  \item{`island_pars[2]`: mu (extinction rate)}
-  \item{`island_pars[3]`: K (carrying capacity), set K=Inf for
-  diversity independence.}
-  \item{`island_pars[4]`: gamma (immigration rate)}
-  \item{`island_pars[5]`: lambda^a (anagenesis rate)}
-  }}
+\item{\code{island_pars[1]}: lambda^c (cladogenesis rate)}
+\item{\code{island_pars[2]}: mu (extinction rate)}
+\item{\code{island_pars[3]}: K (carrying capacity), set K=Inf for
+diversity independence.}
+\item{\code{island_pars[4]}: gamma (immigration rate)}
+\item{\code{island_pars[5]}: lambda^a (anagenesis rate)}
+}}
 
 \item{nonoceanic_pars}{A vector of two numerics with the probability of
 initial presence and the probability of a vicariant species being nonendemic
@@ -45,14 +46,21 @@ during the simulation}
 
 \item{sim_max_age}{Logical, whether to augment the simulated DAISIE data to
 convert vicariant species to max age (stacs)}
+
+\item{epss}{The difference between the island age and the colonisation time
+for maximum age of colonisation of "Non_endemic_MaxAge" and
+"Endemic_MaxAge" species. The default is \code{0} for a max age colonisation at
+the same time as the islands, the DAISIE default is \code{1e-5} for an age that
+is slightly younger than the island for cases when the age provided for
+that species is older than the island.}
 }
 \value{
-A list of DAISIE data lists ([DAISIE::DAISIE_sim_cr()]).
+A list of DAISIE data lists (\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}}).
 }
 \description{
-Simulated DAISIE data (from [DAISIE::DAISIE_sim_cr()]) is
-augmented/formatted after the simulation in `sim_max_age = TRUE` which
+Simulated DAISIE data (from \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}}) is
+augmented/formatted after the simulation in \code{sim_max_age = TRUE} which
 changes the endemicity status (stac) of the simulated DAISIE data. This is
 in order to be analysed by the continental DAISIE inference model.
-`sim_max_age = FALSE` leaves the simulated data with the precise ages.
+\code{sim_max_age = FALSE} leaves the simulated data with the precise ages.
 }

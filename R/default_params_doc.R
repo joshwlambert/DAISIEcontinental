@@ -40,6 +40,12 @@
 #' @param daisie_data_list A single DAISIE data list (i.e. single replicate).
 #' @param parameter A character string of either `"lambda_c"`, `"mu"`, `"K"`,
 #' `"gamma"`, `"lambda_a"`, `"loglik"` to choose the parameter to plot
+#' @param epss The difference between the island age and the colonisation time
+#' for maximum age of colonisation of "Non_endemic_MaxAge" and
+#' "Endemic_MaxAge" species. The default is `0` for a max age colonisation at
+#' the same time as the islands, the DAISIE default is `1e-5` for an age that
+#' is slightly younger than the island for cases when the age provided for
+#' that species is older than the island.
 #'
 #' @return Nothing
 #' @author Joshua W. Lambert
@@ -60,6 +66,7 @@ default_params_doc <- function(signif,
                                verbose,
                                sim_max_age,
                                daisie_data_list,
-                               parameter) {
+                               parameter,
+                               epss) {
   # Nothing
 }
