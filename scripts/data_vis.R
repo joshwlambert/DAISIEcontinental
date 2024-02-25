@@ -38,3 +38,8 @@ DAISIEcontinental::plot_loglik_dist(
   output_file_path = file.path("inst", "plots", "empirical_ana_dist.png"),
   parameter = "lambda_a"
 )
+
+DAISIEcontinental::plot_vicariance_scatter(
+  data_folder_path = file.path("inst", "post_processed_vicariance_results"),
+  output_file_path = file.path("inst", "plots", "vicariance_scatter.png")
+)
