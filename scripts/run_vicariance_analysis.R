@@ -42,7 +42,7 @@ ml <- DAISIE::DAISIE_ML_CS(
                   param_space$island_k[[param_set_idx]] + 1e-5,
                   param_space$island_immig[[param_set_idx]] + 1e-5,
                   param_space$island_ana[[param_set_idx]] + 1e-5,
-                  param_space$prob_init_pres[[param_set_idx]] - 1e-5),
+                  0.5),
   idparsopt = 1:6,
   parsfix = NULL,
   idparsfix = NULL,
