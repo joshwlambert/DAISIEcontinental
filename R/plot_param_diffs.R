@@ -685,7 +685,7 @@ plot_param_diffs <- function(param_set,
       width = 180,
       height = 180,
       units = "mm",
-      dpi = 400
+      dpi = 300
     )
   } else {
     return(param_estimates)

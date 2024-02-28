@@ -104,7 +104,7 @@ plot_loglik_dist <- function(data_folder_path,
       width = 250,
       height = 150,
       units = "mm",
-      dpi = 400
+      dpi = 300
     )
   } else {
     return(param_dist)
