@@ -129,7 +129,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -154,7 +154,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -179,7 +179,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -204,7 +204,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -232,7 +232,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -266,13 +266,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -307,13 +307,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -348,13 +348,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -389,13 +389,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -430,13 +430,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -471,13 +471,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -512,13 +512,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -553,13 +553,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -594,13 +594,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
@@ -635,13 +635,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      trans = trans,
+      transform = trans,
       guide = x_guide
     )
 
