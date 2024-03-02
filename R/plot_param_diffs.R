@@ -129,7 +129,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -154,7 +154,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -179,7 +179,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -204,7 +204,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -232,7 +232,7 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -245,13 +245,7 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_clado,
-        y = sim_ext
-      ),
-      shape = 15
-    ) +
+    ggplot2::annotate(geom = "point", x = sim_clado, y = sim_ext, shape = 15) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
     ggplot2::theme(
@@ -266,13 +260,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -286,12 +280,8 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_clado,
-        y = sim_immig
-      ),
-      shape = 15
+    ggplot2::annotate(
+      geom = "point", x = sim_clado, y = sim_immig, shape = 15
     ) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
@@ -307,13 +297,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -327,13 +317,7 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_clado,
-        y = sim_ana
-      ),
-      shape = 15
-    ) +
+    ggplot2::annotate(geom = "point", x = sim_clado, y = sim_ana, shape = 15) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
     ggplot2::theme(
@@ -348,13 +332,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -368,12 +352,8 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_clado,
-        y = sim_prob_init_pres
-      ),
-      shape = 15
+    ggplot2::annotate(
+      geom = "point", x = sim_clado, y = sim_prob_init_pres, shape = 15
     ) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
@@ -389,13 +369,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -409,13 +389,7 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_ext,
-        y = sim_immig
-      ),
-      shape = 15
-    ) +
+    ggplot2::annotate(geom = "point", x = sim_ext, y = sim_immig, shape = 15) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
     ggplot2::theme(
@@ -430,13 +404,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -450,13 +424,7 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_ext,
-        y = sim_ana
-      ),
-      shape = 15
-    ) +
+    ggplot2::annotate(geom = "point", x = sim_ext, y = sim_ana, shape = 15) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
     ggplot2::theme(
@@ -471,13 +439,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -491,12 +459,8 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_ext,
-        y = sim_prob_init_pres
-      ),
-      shape = 15
+    ggplot2::annotate(
+      geom = "point", x = sim_ext, y = sim_prob_init_pres, shape = 15
     ) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
@@ -512,13 +476,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -532,13 +496,7 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_immig,
-        y = sim_ana
-      ),
-      shape = 15
-    ) +
+    ggplot2::annotate(geom = "point", x = sim_immig, y = sim_ana, shape = 15) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
     ggplot2::theme(
@@ -553,13 +511,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -573,12 +531,8 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_immig,
-        y = sim_prob_init_pres
-      ),
-      shape = 15
+    ggplot2::annotate(
+      geom = "point", x = sim_immig, y = sim_prob_init_pres, shape = 15
     ) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
@@ -594,13 +548,13 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
@@ -614,12 +568,8 @@ plot_param_diffs <- function(param_set,
       shape = 16,
       alpha = 0.5
     ) +
-    ggplot2::geom_point(
-      mapping = ggplot2::aes(
-        x = sim_ana,
-        y = sim_prob_init_pres
-      ),
-      shape = 15
+    ggplot2::annotate(
+      geom = "point", x = sim_ana, y = sim_prob_init_pres, shape = 15
     ) +
     ggplot2::scale_colour_manual(values = c("#1B842C", "#371F76", "#FFBF00")) +
     ggplot2::theme_classic() +
@@ -635,20 +585,26 @@ plot_param_diffs <- function(param_set,
     ggplot2::scale_y_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = y_guide
     ) +
     ggplot2::scale_x_continuous(
       breaks = breaks,
       labels = labels,
-      transform = trans,
+      trans = trans,
       guide = x_guide
     )
 
   legend <- cowplot::get_legend(
     ext_vs_clado +
-      ggplot2::guides(color = ggplot2::guide_legend(nrow = 1)) +
-      ggplot2::theme(legend.position = "bottom")
+      ggplot2::guides(
+        color = ggplot2::guide_legend(nrow = 1, title = "Island Age")
+      ) +
+      ggplot2::theme(
+        legend.position = "bottom",
+        legend.title = ggplot2::element_text(size = 10),
+        legend.text = ggplot2::element_text(size = 10)
+      )
   )
 
   param_estimates <- cowplot::plot_grid(
