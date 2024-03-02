@@ -83,21 +83,7 @@ post_process_daisie_results <- function(data_folder_path,
     ancient_ml <- lapply(ml, "[[", 3)
     ml <- list(young = young_ml, old = old_ml, ancient = ancient_ml)
 
-    # organise simulation data
-    daisie_continental_data <- lapply(
-      results_list, "[[", "daisie_continental_data"
-    )
-    young_daisie_data <- lapply(daisie_continental_data, "[[", 1)
-    old_daisie_data <- lapply(daisie_continental_data, "[[", 2)
-    ancient_daisie_data <- lapply(daisie_continental_data, "[[", 3)
-    daisie_continental_data <- list(
-      young = young_daisie_data,
-      old = old_daisie_data,
-      ancient = ancient_daisie_data
-    )
-
     output <- list(
-      daisie_continental_data = daisie_continental_data,
       ml = ml,
       param_diffs = param_diffs,
       sim_params = sim_params_1

@@ -103,7 +103,6 @@ param_diffs <- DAISIEcontinental::calc_param_diffs(
 )
 
 output <- list(
-  daisie_continental_data = daisie_continental_data,
   ml = ml,
   param_diffs = param_diffs,
   sim_params = list(
