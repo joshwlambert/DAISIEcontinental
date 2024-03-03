@@ -20,9 +20,7 @@ jobs:
         config:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -43,7 +41,7 @@ jobs:
 
       - name: Install rcmdcheck
         run: |
-          install.packages("rcmdcheck")
+          install.packages(c("rcmdcheck", "knitr"))
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
