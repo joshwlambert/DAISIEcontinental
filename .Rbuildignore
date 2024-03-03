@@ -13,3 +13,5 @@
 ^CODE_OF_CONDUCT\.md$
 ^codecov\.yml$
 ^.zenodo.json$
+^doc$
+^Meta$
