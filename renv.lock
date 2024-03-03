@@ -478,9 +478,9 @@
     },
     "igraph": {
       "Package": "igraph",
-      "Version": "2.0.2",
+      "Version": "2.0.2.9007",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "https://igraph.r-universe.dev",
       "Requirements": [
         "Matrix",
         "R",
@@ -497,7 +497,7 @@
         "utils",
         "vctrs"
       ],
-      "Hash": "e3baa015afa83d9f1b748db5a2aedb5a"
+      "Hash": "9691ce56832b53b0404d8ce90f991154"
     },
     "isoband": {
       "Package": "isoband",

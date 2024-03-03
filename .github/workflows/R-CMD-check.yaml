@@ -41,7 +41,7 @@ jobs:
 
       - name: Install rcmdcheck
         run: |
-          install.packages(c("rcmdcheck", "knitr"))
+          install.packages(c("rcmdcheck", "knitr", "rmarkdown"))
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
