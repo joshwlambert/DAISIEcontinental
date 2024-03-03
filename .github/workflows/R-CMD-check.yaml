@@ -40,9 +40,11 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-renv@v2
-        with:
-          extra-packages: any::rcmdcheck
-          needs: check
+
+      - name: Install rcmdcheck
+        run: |
+          install.packages("rcmdcheck")
+        shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
         with:
