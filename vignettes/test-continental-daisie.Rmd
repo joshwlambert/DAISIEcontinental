@@ -65,9 +65,9 @@ following commands (still with `DAISIEcontinental` as the working directory):
 * `sbatch bash/run_analysis.sh 2`
 * `sbatch bash/run_analysis.sh 3`
 * ...
-* `sbatch bash/run_analysis.sh 16`
-* `sbatch bash/run_analysis.sh 17`
-* `sbatch bash/run_analysis.sh 18`
+* `sbatch bash/run_analysis.sh 22`
+* `sbatch bash/run_analysis.sh 23`
+* `sbatch bash/run_analysis.sh 24`
 
 This results in each log and results file having a unique file name and each
 job writing to a single file.
