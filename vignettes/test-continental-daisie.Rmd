@@ -20,15 +20,15 @@ library(DAISIEcontinental)
 
 The {DAISIE} R package contains maximum likelihood models to infer island biogeographical and macroevolutionary processes on reconstructed phylogenetic data of island communities. A new model in the DAISIE model arsenal is the continental island model. This model adjusts the initial conditions of the DAISIE model and introduces a new parameter (`p`), the probability of initial presence. In other words, the parameter defines what proportion of the island community derives from a vicariance event at the origin of the island compared to colonising the island after it formed. 
 
-The {DAISIEcontinental} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model for a variety of island scenarios (e.g. different island ages, and community size).
+The {DAISIEcontinental} R package is a set of tools (functions and scripts) to establish and quantify how accurate the continental DAISIE model is for a variety of island scenarios (e.g. different island ages, and community size).
 
 The package has three principal analyses:
 
 * continental inference model estimation performance with simulated data
 * profile likelihood of empirical data at fixed values of `p`
-* estimation accuracy of vicariance under idealised simulations varying model settings 
+* estimation accuracy of vicariance under idealised simulations varying inference model settings 
 
-The `run_empirical_analysis` (bash and R script) can be used on empirical data when we do not know the try value of `p`, and want to understand the profile of the likelihood. The `run_empirical_analysis` script is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `run_analysis` (bash and R script) is to determine the precision of the model with a known value of `p`. The `run_analysis` script is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario. The `run_vicariance_analysis` (bash and R script) is used to determine how well the maximum likelihood model can estimate the probability of initial presence across different island ages and inference settings when `p = 1` and there is no extinction or colonisation.
+The `run_empirical_analysis` (bash and R script) can be used on empirical data when we do not know the true value of `p`, and want to understand the profile of the likelihood. The `run_empirical_analysis` script is used when empirical data is available and we want to determine how the maximised likelihood of the model changes as we fix the probability of initial presence to different values between its bounds (`[0, 1]`). The `run_analysis` (bash and R script) is to determine the precision of the model with a known value of `p`. The `run_analysis` script is used when we want to determine how well the continental model can estimate the probability of initial presence for a given simulated scenario. The `run_vicariance_analysis` (bash and R script) is used to determine how well the maximum likelihood model can estimate the probability of initial presence across different island ages and inference settings when `p = 1` and there is no extinction or colonisation.
 
 This vignette will walk through the application of all of these analyses and show how they can be used to analyse the continental DAISIE model. The package leverages the High Performance Cluster Computer (HPCC) from the University of Groningen to run the analyses in a distributed manner to parallelise computationally demanding analyses.
 
@@ -58,7 +58,7 @@ does not accept arguments to name the output log files.
 
 Therefore, what works is to manually submit each parameter set manually by
 specifying the parameter set index with an argument to the bash script. There
-are 18 parameter sets so the entire parameter space can be run by running the 
+are 24 parameter sets so the entire parameter space can be run by running the 
 following commands (still with `DAISIEcontinental` as the working directory):
 
 * `sbatch bash/run_analysis.sh 1`
