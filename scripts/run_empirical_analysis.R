@@ -11,7 +11,7 @@ param_set_idx <- args[1]
 replicate <- args[2]
 
 taxonomic_group <- c(
-  "amphibian", "bird", "nonvolant_mammal", "squamate", "volant_mammal"
+  "amphibian", "bird", "nonvolant_mammal", "squamate"
 )
 prob_init_pres <- seq(0, 0.9, 0.1)
 
@@ -27,8 +27,7 @@ datalist <- switch(param_set$taxonomic_group,
   amphibian = readRDS(system.file("madagascar_data", "amp_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
   bird = readRDS(system.file("madagascar_data", "bird_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
   nonvolant_mammal = readRDS(system.file("madagascar_data", "nvm_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
-  squamate = readRDS(system.file("madagascar_data", "squa_ddl_dna_ds_asr.rds", package = "DAISIEcontinental")),
-  volant_mammal = readRDS(system.file("madagascar_data", "vm_ddl_dna_ds_asr.rds", package = "DAISIEcontinental"))
+  squamate = readRDS(system.file("madagascar_data", "squa_ddl_dna_ds_asr.rds", package = "DAISIEcontinental"))
 )
 
 datalist <- datalist[[replicate]]
