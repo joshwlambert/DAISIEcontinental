@@ -119,7 +119,7 @@ not need to be repeated.
 The empirical analysis uses the same job setup and submission as the parameter
 estimation analysis. The entire empirical analysis also cannot be submitted 
 with a single command, and instead each parameter set is submitted individually, 
-specifying the param set index as an argument. There are 50 parameter sets,
+specifying the param set index as an argument. There are 40 parameter sets,
 which includes each taxonomic group and each fixed probability of initial 
 presence of species on the continental island.
 
@@ -127,9 +127,9 @@ presence of species on the continental island.
 * `sbatch bash/run_empirical_analysis.sh 2`
 * `sbatch bash/run_empirical_analysis.sh 3`
 * ...
-* `sbatch bash/run_empirical_analysis.sh 48`
-* `sbatch bash/run_empirical_analysis.sh 49`
-* `sbatch bash/run_empirical_analysis.sh 50`
+* `sbatch bash/run_empirical_analysis.sh 38`
+* `sbatch bash/run_empirical_analysis.sh 39`
+* `sbatch bash/run_empirical_analysis.sh 40`
 
 ### Processing empirical results
 
