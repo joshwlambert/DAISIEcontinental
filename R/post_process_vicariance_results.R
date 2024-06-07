@@ -17,7 +17,9 @@ post_process_vicariance_results <- function(data_folder_path,
 
   ml <- lapply(results_list, "[[", "ml")
   ml <- do.call(rbind, ml)
-  ml_cols <- c("lambda_c", "mu", "K", "gamma", "lambda_a", "prob_init_pres")
+  ml_cols <- c(
+    "lambda_c", "mu", "K", "gamma", "lambda_a", "prob_init_pres", "loglik"
+  )
   ml <- ml[, ml_cols]
 
   sim_params <- lapply(results_list, "[[", "sim_params")
