@@ -75,8 +75,7 @@ plot_loglik_dist <- function(data_folder_path,
         "amphibian" = "Amphibians",
         "bird" = "Birds",
         "nonvolant_mammal" = "NV Mammals",
-        "squamate" = "Squamates",
-        "volant_mammal" = "V Mammals"
+        "squamate" = "Squamates"
       ))
     ) +
     ggplot2::scale_y_continuous(name = y_axis_lab) +
@@ -86,11 +85,10 @@ plot_loglik_dist <- function(data_folder_path,
       labels = c(
         amphibian = "Amphibians",
         nonvolant_mammal = "NV Mammals",
-        volant_mammal = "V Mammals",
         squamate = "Squamates",
         bird = "Birds"
       ),
-      values = c("#7fbd2d", "#073dfd", "#a8856e", "#01783f", "#3d3d3d")
+      values = c("#7fbd2d", "#073dfd", "#a8856e", "#01783f")
     ) +
     ggplot2::theme_classic() +
     ggplot2::theme(strip.background = ggplot2::element_blank())
