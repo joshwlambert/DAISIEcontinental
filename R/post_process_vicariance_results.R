@@ -17,6 +17,8 @@ post_process_vicariance_results <- function(data_folder_path,
 
   ml <- lapply(results_list, "[[", "ml")
   ml <- do.call(rbind, ml)
+  # if some MLs fail then the rows will be NA and the rownames "prob_init_pres"
+  row.names(ml) <- NULL
   ml_cols <- c(
     "lambda_c", "mu", "K", "gamma", "lambda_a", "prob_init_pres", "loglik"
   )
