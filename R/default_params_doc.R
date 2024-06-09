@@ -46,6 +46,12 @@
 #' the same time as the islands, the DAISIE default is `1e-5` for an age that
 #' is slightly younger than the island for cases when the age provided for
 #' that species is older than the island.
+#' @param prob_init_pres_diff_threshold A `numeric` or `NULL` (default) for
+#' whether to plot only those points that have a difference in probability of
+#' initial presence (`prob_init_pres`) above a certain threshold (`[0,1]`).
+#' @param x_axis A `character` string of either `"total_time"` or
+#' `"prob_init_pres_diff"` which determines which variable is used to plot
+#' on the x_axis of the vicariance_loglik_diff plot.
 #'
 #' @return Nothing
 #' @author Joshua W. Lambert
@@ -67,6 +73,8 @@ default_params_doc <- function(signif,
                                sim_max_age,
                                daisie_data_list,
                                parameter,
-                               epss) {
+                               epss,
+                               prob_init_pres_diff_threshold,
+                               x_axis) {
   # Nothing
 }

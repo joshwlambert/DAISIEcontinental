@@ -23,7 +23,9 @@ default_params_doc(
   sim_max_age,
   daisie_data_list,
   parameter,
-  epss
+  epss,
+  prob_init_pres_diff_threshold,
+  x_axis
 )
 }
 \arguments{
@@ -91,6 +93,14 @@ for maximum age of colonisation of "Non_endemic_MaxAge" and
 the same time as the islands, the DAISIE default is \code{1e-5} for an age that
 is slightly younger than the island for cases when the age provided for
 that species is older than the island.}
+
+\item{prob_init_pres_diff_threshold}{A \code{numeric} or \code{NULL} (default) for
+whether to plot only those points that have a difference in probability of
+initial presence (\code{prob_init_pres}) above a certain threshold (\verb{[0,1]}).}
+
+\item{x_axis}{A \code{character} string of either \code{"total_time"} or
+\code{"prob_init_pres_diff"} which determines which variable is used to plot
+on the x_axis of the vicariance_loglik_diff plot.}
 }
 \value{
 Nothing
