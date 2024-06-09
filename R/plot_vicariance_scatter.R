@@ -8,12 +8,16 @@
 #' Differences in simulated cladogenesis and anagensis rate are also plotted.
 #'
 #' @inheritParams default_params_doc
+#' @param parameter A `character` string with either: `"prob_init_pres"` or
+#' `"loglik"`.
 #'
 #' @return Void (saves plot)
 #' @export
 plot_vicariance_scatter <- function(data_folder_path,
-                                    output_file_path) {
+                                    output_file_path,
+                                    parameter) {
 
+  parameter <- match.arg(parameter, choices = c("prob_init_pres", "loglik"))
   file <- list.files(data_folder_path, pattern = "param_sets")
 
   if (length(file) == 0) {
@@ -23,14 +27,37 @@ plot_vicariance_scatter <- function(data_folder_path,
     results <- readRDS(file_path)
   }
 
-  vicariance_scatter <- ggplot2::ggplot(data = results) +
-    ggplot2::geom_point(mapping = ggplot2::aes(
-      x = total_time, y = prob_init_pres, colour = as.factor(island_clado),
-      shape = as.factor(island_ana))) +
-    ggplot2::scale_y_continuous(
-      name = "Probability of initial presence (p)",
-      limits = c(0, 1)
-    ) +
+  # Fix build warnings
+  total_time <- NULL; rm(total_time) # nolint start
+  prob_init_pres <- NULL; rm(prob_init_pres)
+  island_clado <- NULL; rm(island_clado)
+  island_ana <- NULL; rm(island_ana)
+  loglik <- NULL; rm(loglik)
+  optimmethod <- NULL; rm(optimmethod)
+  epss <- NULL; rm(epss) # nolint end
+
+  vicariance_scatter <- ggplot2::ggplot(data = results)
+
+  if (parameter == "prob_init_pres") {
+    vicariance_scatter <- vicariance_scatter +
+      ggplot2::geom_point(mapping = ggplot2::aes(
+        x = total_time, y = prob_init_pres, colour = as.factor(island_clado),
+        shape = as.factor(island_ana))) +
+      ggplot2::scale_y_continuous(
+        name = "Probability of initial presence (p)",
+        limits = c(0, 1)
+      )
+  } else {
+    vicariance_scatter <- vicariance_scatter +
+      ggplot2::geom_point(mapping = ggplot2::aes(
+        x = total_time, y = loglik, colour = as.factor(island_clado),
+        shape = as.factor(island_ana))) +
+      ggplot2::scale_y_continuous(
+        name = expression(DAISIE ~ log ~ likelihood ~ hat(L))
+      )
+  }
+
+  vicariance_scatter  <- vicariance_scatter +
     ggplot2::scale_x_continuous(name = "Island Age (Million of years)") +
     ggplot2::scale_color_manual(
       name = "Cladogensis Rate",

@@ -5,7 +5,7 @@
 \title{Plots a the estimated probability of initial presence across vicariance
 simulation scenarios}
 \usage{
-plot_vicariance_scatter(data_folder_path, output_file_path)
+plot_vicariance_scatter(data_folder_path, output_file_path, parameter)
 }
 \arguments{
 \item{data_folder_path}{String specifying the directory the data is read
@@ -13,6 +13,9 @@ from}
 
 \item{output_file_path}{String specifying the directory the file is saved
 in, if NULL the file is returned to console and not saved}
+
+\item{parameter}{A \code{character} string with either: \code{"prob_init_pres"} or
+\code{"loglik"}.}
 }
 \value{
 Void (saves plot)
