@@ -1,7 +1,7 @@
 Package: DAISIEcontinental
 Type: Package
 Title: Test continental DAISIE MLE model
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: person(
              given = "Joshua W.", 
              family = "Lambert", 

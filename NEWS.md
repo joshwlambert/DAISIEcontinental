@@ -1,3 +1,21 @@
+# DAISIEcontinental 0.3.0
+
+The third minor release of the _DAISIEcontinental_ R package includes various minor updates.
+
+## New features
+
+* The `plot_vicariance_loglik_diff()` function is added.
+* `plot_vicariance_scatter()` can now plot both the probability of initial presence and the loglikelihood.
+
+## Updates
+
+* Species sink island parameter sets have been added to simulation performance analysis (`data/` and `data-raw/`).
+* Volant mammals are removed from the profile likelihood analysis as they no longer fit the continental DAISIE model in the Madagascar communities analysis.
+* Plots have been updated.
+* The R CMD check GitHub action workflow has been updated.
+* `renv.lock` is updated.
+* The `test-continental-daisie.Rmd` vignette has been updated.
+
 # DAISIEcontinental 0.2.0
 
 Second minor release of _DAISIEcontinental_ R package contains a range of updates and new functionality.
